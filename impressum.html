@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum &ndash; semper aude</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0D1117;
+    --bg-alt: #161B22;
+    --card-bg: #161B22;
+    --ink: #E6EDF3;
+    --muted: #8B949E;
+    --line: #30363D;
+    --accent: #F0813A;
+    --accent-tint: #3A2415;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  header { border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; max-width: 1120px; margin: 0 auto; }
+  .wordmark {
+    font-family: 'Germania One', cursive;
+    font-weight: 400;
+    font-size: 1.3rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'%3E%3Cpolygon points='0,0 100,0 100,100' fill='%236b1029'/%3E%3Cpolygon points='0,0 100,100 0,100' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,100 100,200' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,200 0,200' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,0 200,100' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,100 100,100' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,100 200,200' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,200 100,200' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,0 300,100' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,100 200,100' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,100 300,200' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,200 200,200' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,0 400,100' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,100 300,100' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,100 400,200' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,200 300,200' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,0 500,100' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,100 400,100' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,100 500,200' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,200 400,200' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,0 600,100' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,100 500,100' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,100 600,200' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,200 500,200' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,0 700,100' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,100 600,100' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,100 700,200' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,200 600,200' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,0 800,100' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,100 700,100' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,100 800,200' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,200 700,200' fill='%23ffdb5c'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  .back-link { font-size: 0.85rem; color: var(--muted); }
+  .back-link:hover { color: var(--accent); }
+
+  main { padding: clamp(2.5rem, 6vw, 4rem) 0; }
+
+  h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.01em; }
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 2.5rem 0 0.75rem; }
+  p { margin-bottom: 0.3rem; line-height: 1.7; }
+  .muted { color: var(--muted); font-size: 0.9rem; }
+
+  .placeholder {
+    background: var(--accent-tint);
+    color: #F0A870;
+    padding: 0 4px;
+    border-radius: 4px;
+    font-size: 0.95em;
+  }
+
+  footer { padding: 2rem 0; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--line); margin-top: 3rem; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+  .footer-link { color: var(--muted); }
+  .footer-link:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="/">semper aude</a>
+    <a class="back-link" href="/">&larr; Zurück zur Startseite</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Impressum</h1>
+
+  <p class="muted">
+    Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)
+  </p>
+
+  <h2>Angaben zum Anbieter</h2>
+  <p>Christoph Müller<br>St.-Martin-Straße 20<br>D-95176 Konradsreuth</p>
+
+  <h2>Kontakt</h2>
+  <p>E-Mail: <span id="email-out">wird geladen…</span></p>
+
+  <h2>Verantwortlich für den Inhalt</h2>
+  <p class="muted">gemäß § 18 Abs. 2 MStV</p>
+  <p>Christoph Müller</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 semper-au.de</span>
+    <a class="footer-link" href="/impressum.html">Impressum</a>
+  </div>
+</footer>
+
+<script>
+  // E-Mail-Adresse wird erst hier zusammengesetzt, um sie vor einfachen
+  // Scraper-Bots zu schützen. Bitte "name" und "domain" unten anpassen.
+  (function() {
+    var name = "christoph.wolfgang.mueller";
+    var domain = "proton.me";
+    var address = name + "@" + domain;
+    var el = document.getElementById("email-out");
+    var link = document.createElement("a");
+    link.href = "mailto:" + address;
+    link.textContent = address;
+    el.textContent = "";
+    el.appendChild(link);
+  })();
+</script>
+
+</body>
+</html>
