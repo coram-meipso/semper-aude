@@ -36,7 +36,15 @@
     padding: 0 clamp(1.25rem, 4vw, 2.5rem);
   }
 
-  header { border-bottom: 1px solid var(--line); }
+  header {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(13, 17, 23, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
   .header-inner {
     display: flex;
     align-items: center;
@@ -58,8 +66,68 @@
     display: inline-block;
   }
   nav { display: flex; gap: 2rem; align-items: center; }
-  nav a.navlink { font-size: 0.9rem; font-weight: 500; color: var(--muted); }
+  nav a.navlink {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    position: relative;
+    padding-bottom: 4px;
+  }
   nav a.navlink:hover { color: var(--ink); }
+  nav a.navlink::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+  nav a.navlink.active { color: var(--ink); }
+  nav a.navlink.active::after { transform: scaleX(1); }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .menu-toggle { display: flex; }
+    nav {
+      position: fixed;
+      top: 61px;
+      left: 0; right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1rem;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    nav.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    nav a.navlink { padding: 0.6rem 0; width: 100%; }
+    nav .btn { margin-top: 0.5rem; }
+  }
   .btn {
     display: inline-flex;
     align-items: center;
@@ -163,47 +231,34 @@
 <header>
   <div class="wrap header-inner">
     <a class="wordmark" href="/">semper aude</a>
-    <nav>
+    <nav id="main-nav">
       <a class="navlink" href="#blog">Blog</a>
       <a class="navlink" href="#projekte">Projekte</a>
-      <a class="navlink" href="#familie">Familie</a>
+      <a class="navlink" href="#buecher">Bücher</a>
       <a class="btn btn-primary" href="https://home.semper-au.de">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
         Login
       </a>
     </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <section class="hero wrap">
   <h1 class="hero-title">semper aude</h1>
   <p class="lede">
-    Notizen aus Projekten, Alltag und Familie &ndash; diese Seite entsteht gerade
-    und wächst mit der Zeit.
+    Notizen. Projekte. Bücher.
   </p>
-  <div class="hero-actions">
-    <a class="btn btn-primary" href="#blog">Blog lesen</a>
-    <a class="btn" href="#projekte">Projekte ansehen</a>
-  </div>
 </section>
 
-<div class="status-strip">
-  <div class="wrap status-inner">
-    <span class="dot"></span>
-    Alle Dienste online
-  </div>
-</div>
-
 <section class="section wrap" id="uebersicht">
-  <div class="section-head">
-    <h2>Was hier entsteht</h2>
-    <p>Drei Bereiche, die mit der Zeit gefüllt werden.</p>
-  </div>
   <div class="grid">
 
     <div class="card" id="blog">
       <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5a1 1 0 00-1-1H4a1 1 0 00-1 1v6a1 1 0 001 1h3v3c0 2-2 3-4 3z"/><path d="M14 21c3 0 7-1 7-8V5a1 1 0 00-1-1h-5a1 1 0 00-1 1v6a1 1 0 001 1h3v3c0 2-2 3-4 3z"/></svg>
       </div>
       <h3>Blog</h3>
       <p>Gedanken zu Projekten, Technik und dem, was gerade beschäftigt.</p>
@@ -212,19 +267,19 @@
 
     <div class="card" id="projekte">
       <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"/><path d="M14.5 5.5l4 4"/><path d="M12 8l-5 -5l-4 4l5 5"/><path d="M7 8l-1.5 1.5"/><path d="M16 12l5 5l-4 4l-5 -5"/><path d="M16 17l-1.5 1.5"/></svg>
       </div>
       <h3>Projekte</h3>
       <p>Alles rund um Smart Home, Selfhosting und was sonst noch entsteht.</p>
       <a class="card-link" href="#">Bald verfügbar</a>
     </div>
 
-    <div class="card" id="familie">
+    <div class="card" id="buecher">
       <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20a6 6 0 00-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h8"/></svg>
       </div>
-      <h3>Familie</h3>
-      <p>Kleine Momente und Erinnerungen aus dem Alltag.</p>
+      <h3>Bücher</h3>
+      <p>Gelesenes und Empfehlungen, kurz notiert.</p>
       <a class="card-link" href="#">Bald verfügbar</a>
     </div>
 
@@ -237,6 +292,31 @@
     <a class="footer-link" href="/impressum.html">Impressum</a>
   </div>
 </footer>
+
+<script>
+  // Hamburger-Menü fürs Handy
+  var toggle = document.getElementById('menu-toggle');
+  var nav = document.getElementById('main-nav');
+  toggle.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  nav.querySelectorAll('a.navlink').forEach(function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Aktiven Nav-Link beim Klick markieren
+  var navLinks = nav.querySelectorAll('a.navlink');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
