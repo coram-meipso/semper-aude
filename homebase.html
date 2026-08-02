@@ -99,14 +99,14 @@
   .infra-row { display: flex; flex-wrap: wrap; gap: 1rem; }
   .infra-item {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 14px;
     background: var(--card-bg);
     border: 1px solid var(--line);
     border-radius: 10px;
-    padding: 0.85rem 1.1rem;
+    padding: 1.1rem 1.25rem;
   }
-  .infra-name { font-size: 0.88rem; font-weight: 600; }
+  .infra-name { font-size: 0.95rem; font-weight: 600; }
 
   footer { padding: 1.5rem 0; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
 </style>
@@ -134,8 +134,8 @@
         <div class="service-name">Home Assistant</div>
         <div class="service-url">home.semper-au.de</div>
         <div class="badges">
-          <img src="https://status.semper-au.de/api/badge/4/status" alt="Status">
-          <img src="https://status.semper-au.de/api/badge/4/uptime/24" alt="Uptime 24h">
+          <img src="https://status.semper-au.de/api/badge/4/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/4/uptime/24?style=flat-square" alt="Uptime 24h">
         </div>
       </div>
     </a>
@@ -148,8 +148,8 @@
         <div class="service-name">OpenCloud</div>
         <div class="service-url">cloud.semper-au.de</div>
         <div class="badges">
-          <img src="https://status.semper-au.de/api/badge/8/status" alt="Status">
-          <img src="https://status.semper-au.de/api/badge/8/uptime/24" alt="Uptime 24h">
+          <img src="https://status.semper-au.de/api/badge/8/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/8/uptime/24?style=flat-square" alt="Uptime 24h">
         </div>
       </div>
     </a>
@@ -162,8 +162,8 @@
         <div class="service-name">Immich</div>
         <div class="service-url">photos.semper-au.de</div>
         <div class="badges">
-          <img src="https://status.semper-au.de/api/badge/2/status" alt="Status">
-          <img src="https://status.semper-au.de/api/badge/2/uptime/24" alt="Uptime 24h">
+          <img src="https://status.semper-au.de/api/badge/2/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/2/uptime/24?style=flat-square" alt="Uptime 24h">
         </div>
       </div>
     </a>
@@ -176,8 +176,8 @@
         <div class="service-name">Paperless</div>
         <div class="service-url">paperless.semper-au.de</div>
         <div class="badges">
-          <img src="https://status.semper-au.de/api/badge/1/status" alt="Status">
-          <img src="https://status.semper-au.de/api/badge/1/uptime/24" alt="Uptime 24h">
+          <img src="https://status.semper-au.de/api/badge/1/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/1/uptime/24?style=flat-square" alt="Uptime 24h">
         </div>
       </div>
     </a>
@@ -197,17 +197,29 @@
   <h2 class="infra-heading">Infrastruktur</h2>
   <div class="infra-row">
     <div class="infra-item">
-      <span class="infra-name">Portainer</span>
-      <div class="badges">
-        <img src="https://status.semper-au.de/api/badge/3/status" alt="Status">
-        <img src="https://status.semper-au.de/api/badge/3/uptime/24" alt="Uptime 24h">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6"/><path d="M7 16h4"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="infra-name">Portainer</div>
+        <div class="service-url">192.168.178.116:9000</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/3/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/3/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
       </div>
     </div>
     <div class="infra-item">
-      <span class="infra-name">NAS</span>
-      <div class="badges">
-        <img src="https://status.semper-au.de/api/badge/5/status" alt="Status">
-        <img src="https://status.semper-au.de/api/badge/5/uptime/24" alt="Uptime 24h">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1"/><rect x="3" y="13" width="18" height="7" rx="1"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="infra-name">NAS</div>
+        <div class="service-url">192.168.178.116:9443</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/5/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/5/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
       </div>
     </div>
   </div>
