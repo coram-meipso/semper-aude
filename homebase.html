@@ -85,7 +85,7 @@
   .service-name { font-size: 0.95rem; font-weight: 600; }
   .service-url { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem; }
   .service-info { min-width: 0; }
-  .badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .badges { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
   .badges img { height: 20px; display: block; }
 
   .infra-heading {
@@ -121,9 +121,9 @@
 </header>
 
 <main class="wrap">
-  <h1>Schaltzentrale</h1>
-  <p class="subtitle">Direktzugang zu allen Diensten.</p>
+  <h1>HomeBase</h1>
 
+  <h2 class="infra-heading">Direkt zugängliche Dienste</h2>
   <div class="grid">
 
     <a class="service-card" href="https://home.semper-au.de">
@@ -182,23 +182,13 @@
       </div>
     </a>
 
-    <a class="service-card" href="https://status.semper-au.de">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8l4 -16l3 8h4"/></svg>
-      </div>
-      <div>
-        <div class="service-name">Status</div>
-        <div class="service-url">status.semper-au.de</div>
-      </div>
-    </a>
-
   </div>
 
-  <h2 class="infra-heading">Infrastruktur</h2>
+  <h2 class="infra-heading">Mit Tailscale zugängliche Dienste</h2>
   <div class="infra-row">
     <div class="infra-item">
       <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6"/><path d="M7 16h4"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 3v18"/><path d="M4 7.5l8 4.5l8-4.5"/></svg>
       </div>
       <div class="service-info">
         <div class="infra-name">Portainer</div>
