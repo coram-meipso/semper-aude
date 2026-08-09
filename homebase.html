@@ -99,16 +99,25 @@
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 1.1rem 1.25rem;
+    transition: border-color 0.15s ease;
   }
+  .infra-item:hover { border-color: var(--accent); }
   .infra-name { font-size: 0.95rem; font-weight: 600; }
 
   .fritz-card {
+    display: block;
     background: var(--card-bg);
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 1.1rem 1.25rem;
     max-width: 420px;
     margin-top: 2.5rem;
+    transition: border-color 0.15s ease;
+  }
+  .fritz-card:hover { border-color: var(--accent); }
+  .reach-badge {
+    display: inline-block; margin-top: 6px; font-size: 0.78rem;
+    border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px;
   }
   .fritz-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
   .fritz-stats { display: flex; gap: 10px; margin-bottom: 14px; }
@@ -125,7 +134,7 @@
   }
   .fritz-device-row { display: flex; justify-content: space-between; padding: 7px 4px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink); }
 
-  footer { padding: 1.5rem 0; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
+  footer { padding: 1.5rem 0; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
 </style>
 </head>
 <body>
@@ -202,7 +211,7 @@
   </div>
 
   <div class="infra-row">
-    <div class="infra-item">
+    <a class="infra-item" href="http://192.168.178.116:9000" target="_blank" rel="noopener">
       <div class="service-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 3v18"/><path d="M4 7.5l8 4.5l8-4.5"/></svg>
       </div>
@@ -214,8 +223,8 @@
           <img src="https://status.semper-au.de/api/badge/3/uptime/24?style=flat-square" alt="Uptime 24h">
         </div>
       </div>
-    </div>
-    <div class="infra-item">
+    </a>
+    <a class="infra-item" href="https://192.168.178.116:9443" target="_blank" rel="noopener">
       <div class="service-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1"/><rect x="3" y="13" width="18" height="7" rx="1"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
       </div>
@@ -227,17 +236,18 @@
           <img src="https://status.semper-au.de/api/badge/5/uptime/24?style=flat-square" alt="Uptime 24h">
         </div>
       </div>
-    </div>
+    </a>
   </div>
 
-  <div class="fritz-card" id="fritzbox-card">
+  <a class="fritz-card" id="fritzbox-card" href="http://192.168.178.1" target="_blank" rel="noopener">
     <div class="fritz-header">
       <div class="service-icon" style="background: var(--accent-tint);">
         <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="6" rx="1"/><path d="M6 18h.01M10 18h.01"/><path d="M12 14v-4a4 4 0 0 1 4 -4h4"/></svg>
       </div>
       <div class="service-info">
         <div class="infra-name">FritzBox</div>
-        <div class="service-url" style="margin-bottom:0">192.168.178.1</div>
+        <div class="service-url" style="margin-bottom:0">192.168.178.1 &middot; FritzOS <span id="fb-fritzos">&ndash;</span></div>
+        <span id="fb-reachable-badge" class="reach-badge">Lädt&hellip;</span>
       </div>
     </div>
 
@@ -252,6 +262,17 @@
       </div>
     </div>
 
+    <div class="fritz-stats">
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Max. Download</div>
+        <div class="fritz-stat-value" id="fb-maxdown">&ndash;</div>
+      </div>
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Max. Upload</div>
+        <div class="fritz-stat-value" id="fb-maxup">&ndash;</div>
+      </div>
+    </div>
+
     <div class="fritz-status-row">
       <div style="display:flex; align-items:center; gap:8px;">
         <span class="fritz-dot" id="fb-dot"></span>
@@ -260,13 +281,28 @@
       <span style="font-size:0.85rem; color: var(--muted);" id="fb-uptime"></span>
     </div>
 
+    <div class="fritz-stats" style="margin-top: 10px;">
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Geräte online</div>
+        <div class="fritz-stat-value" id="fb-count-total">&ndash;</div>
+      </div>
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">via WLAN</div>
+        <div class="fritz-stat-value" id="fb-count-wlan">&ndash;</div>
+      </div>
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">via Ethernet</div>
+        <div class="fritz-stat-value" id="fb-count-lan">&ndash;</div>
+      </div>
+    </div>
+
     <button class="fritz-toggle" id="fb-toggle">
       <span id="fb-devicecount">Geräte werden geladen&hellip;</span>
       <span id="fb-chev">&#9662;</span>
     </button>
 
     <div id="fb-devicelist" style="display:none; margin-top:8px;"></div>
-  </div>
+  </a>
 </main>
 
 <footer>
@@ -280,11 +316,28 @@ async function ladeFritzStatus() {
     const data = await res.json();
     document.getElementById('fb-down').textContent = data.download_kbit + ' kbit/s';
     document.getElementById('fb-up').textContent = data.upload_kbit + ' kbit/s';
+    document.getElementById('fb-maxdown').textContent = (data.max_down_kbit / 1000).toFixed(1) + ' Mbit/s';
+    document.getElementById('fb-maxup').textContent = (data.max_up_kbit / 1000).toFixed(1) + ' Mbit/s';
+    document.getElementById('fb-fritzos').textContent = data.fritzos_version || '?';
+    const badge = document.getElementById('fb-reachable-badge');
+    if (data.verbunden) {
+      badge.textContent = 'Erreichbar';
+      badge.style.color = 'var(--green)';
+      badge.style.borderColor = 'var(--green)';
+    } else {
+      badge.textContent = 'Nicht erreichbar';
+      badge.style.color = 'var(--red)';
+      badge.style.borderColor = 'var(--red)';
+    }
     document.getElementById('fb-status').textContent = data.verbunden ? 'Verbunden' : 'Getrennt';
     document.getElementById('fb-dot').style.background = data.verbunden ? 'var(--green)' : 'var(--red)';
     document.getElementById('fb-uptime').textContent = 'Uptime ' + Math.floor(data.uptime_sekunden / 3600) + ' Std.';
   } catch (e) {
     document.getElementById('fb-status').textContent = 'Nicht erreichbar';
+    const badge = document.getElementById('fb-reachable-badge');
+    badge.textContent = 'Nicht erreichbar';
+    badge.style.color = 'var(--red)';
+    badge.style.borderColor = 'var(--red)';
   }
 }
 
@@ -293,6 +346,13 @@ async function ladeFritzGeraete() {
     const res = await fetch('https://fritz-status.semper-au.de/api/devices', { credentials: 'include' });
     const data = await res.json();
     document.getElementById('fb-devicecount').textContent = data.anzahl_online + ' Geräte online';
+
+    const wlanCount = data.geraete.filter(g => g.verbindung === 'WLAN').length;
+    const lanCount = data.geraete.filter(g => g.verbindung !== 'WLAN').length;
+    document.getElementById('fb-count-total').textContent = data.anzahl_online;
+    document.getElementById('fb-count-wlan').textContent = wlanCount;
+    document.getElementById('fb-count-lan').textContent = lanCount;
+
     document.getElementById('fb-devicelist').innerHTML = data.geraete.map(g =>
       '<div class="fritz-device-row"><span>' + g.name + ' <span style="color:var(--muted); font-size:0.72rem;">(' + g.verbindung + ')</span></span><span style="color:var(--muted);">' + g.ip + '</span></div>'
     ).join('');
@@ -301,11 +361,18 @@ async function ladeFritzGeraete() {
   }
 }
 
-document.getElementById('fb-toggle').addEventListener('click', () => {
+document.getElementById('fb-toggle').addEventListener('click', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
   const list = document.getElementById('fb-devicelist');
   const open = list.style.display === 'block';
   list.style.display = open ? 'none' : 'block';
   document.getElementById('fb-chev').innerHTML = open ? '&#9662;' : '&#9652;';
+});
+
+document.getElementById('fb-devicelist').addEventListener('click', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
 });
 
 ladeFritzStatus();
