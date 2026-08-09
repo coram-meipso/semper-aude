@@ -119,6 +119,8 @@
     display: inline-block; margin-top: 6px; font-size: 0.78rem;
     border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px;
   }
+  @keyframes fb-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  #fb-refresh-icon.spinning { animation: fb-spin 0.6s linear; }
   .fritz-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
   .fritz-stats { display: flex; gap: 10px; margin-bottom: 14px; }
   .fritz-stat { flex: 1; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
@@ -240,36 +242,51 @@
   </div>
 
   <a class="fritz-card" id="fritzbox-card" href="http://192.168.178.1" target="_blank" rel="noopener">
-    <div class="fritz-header">
-      <div class="service-icon" style="background: var(--accent-tint);">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="6" rx="1"/><path d="M6 18h.01M10 18h.01"/><path d="M12 14v-4a4 4 0 0 1 4 -4h4"/></svg>
+    <div class="fritz-header" style="justify-content: space-between;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div class="service-icon" style="background: var(--accent-tint);">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="6" rx="1"/><path d="M6 18h.01M10 18h.01"/><path d="M12 14v-4a4 4 0 0 1 4 -4h4"/></svg>
+        </div>
+        <div class="service-info">
+          <div class="infra-name">FritzBox</div>
+          <div class="service-url" style="margin-bottom:0">192.168.178.1 &middot; FritzOS <span id="fb-fritzos">&ndash;</span></div>
+          <span id="fb-reachable-badge" class="reach-badge">Lädt&hellip;</span>
+        </div>
       </div>
-      <div class="service-info">
-        <div class="infra-name">FritzBox</div>
-        <div class="service-url" style="margin-bottom:0">192.168.178.1 &middot; FritzOS <span id="fb-fritzos">&ndash;</span></div>
-        <span id="fb-reachable-badge" class="reach-badge">Lädt&hellip;</span>
-      </div>
+      <svg id="fb-refresh-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2M4 5v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></svg>
     </div>
 
     <div class="fritz-stats">
       <div class="fritz-stat">
         <div class="fritz-stat-label">Download</div>
-        <div class="fritz-stat-value" id="fb-down">&ndash;</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6l6-6"/></svg>
+          <span id="fb-down">&ndash;</span>
+        </div>
       </div>
       <div class="fritz-stat">
         <div class="fritz-stat-label">Upload</div>
-        <div class="fritz-stat-value" id="fb-up">&ndash;</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6l6 6"/></svg>
+          <span id="fb-up">&ndash;</span>
+        </div>
       </div>
     </div>
 
     <div class="fritz-stats">
       <div class="fritz-stat">
         <div class="fritz-stat-label">Max. Download</div>
-        <div class="fritz-stat-value" id="fb-maxdown">&ndash;</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M13.41 12.59l2.59 -2.59"/><path d="M7 13a5 5 0 1 1 10 0"/><path d="M4.5 13a8 8 0 1 1 15 3.5"/></svg>
+          <span id="fb-maxdown">&ndash;</span>
+        </div>
       </div>
       <div class="fritz-stat">
         <div class="fritz-stat-label">Max. Upload</div>
-        <div class="fritz-stat-value" id="fb-maxup">&ndash;</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M13.41 12.59l2.59 -2.59"/><path d="M7 13a5 5 0 1 1 10 0"/><path d="M4.5 13a8 8 0 1 1 15 3.5"/></svg>
+          <span id="fb-maxup">&ndash;</span>
+        </div>
       </div>
     </div>
 
@@ -311,6 +328,10 @@
 
 <script>
 async function ladeFritzStatus() {
+  const icon = document.getElementById('fb-refresh-icon');
+  icon.classList.remove('spinning');
+  void icon.offsetWidth;
+  icon.classList.add('spinning');
   try {
     const res = await fetch('https://fritz-status.semper-au.de/api/status', { credentials: 'include' });
     const data = await res.json();
@@ -320,15 +341,9 @@ async function ladeFritzStatus() {
     document.getElementById('fb-maxup').textContent = (data.max_up_kbit / 1000).toFixed(1) + ' Mbit/s';
     document.getElementById('fb-fritzos').textContent = data.fritzos_version || '?';
     const badge = document.getElementById('fb-reachable-badge');
-    if (data.verbunden) {
-      badge.textContent = 'Erreichbar';
-      badge.style.color = 'var(--green)';
-      badge.style.borderColor = 'var(--green)';
-    } else {
-      badge.textContent = 'Nicht erreichbar';
-      badge.style.color = 'var(--red)';
-      badge.style.borderColor = 'var(--red)';
-    }
+    badge.textContent = 'Erreichbar';
+    badge.style.color = 'var(--green)';
+    badge.style.borderColor = 'var(--green)';
     document.getElementById('fb-status').textContent = data.verbunden ? 'Verbunden' : 'Getrennt';
     document.getElementById('fb-dot').style.background = data.verbunden ? 'var(--green)' : 'var(--red)';
     document.getElementById('fb-uptime').textContent = 'Uptime ' + Math.floor(data.uptime_sekunden / 3600) + ' Std.';
@@ -377,6 +392,8 @@ document.getElementById('fb-devicelist').addEventListener('click', (event) => {
 
 ladeFritzStatus();
 ladeFritzGeraete();
+setInterval(ladeFritzStatus, 15000);
+setInterval(ladeFritzGeraete, 15000);
 
 function aktualisiereUhrzeit() {
   const jetzt = new Date();
