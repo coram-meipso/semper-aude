@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>semper aude</title>
+<meta name="robots" content="noindex, nofollow">
+<title>HomeBase &ndash; semper aude</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -16,7 +17,6 @@
     --line: #30363D;
     --accent: #F0813A;
     --accent-tint: #3A2415;
-    --card-shadow: none;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,32 +33,14 @@
 
   a { color: inherit; text-decoration: none; }
 
-  .wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
-  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
 
-  header {
-    border-bottom: 1px solid var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(13, 17, 23, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 0;
-  }
+  header { border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; }
   .wordmark {
     font-family: 'Germania One', cursive;
     font-weight: 400;
     font-size: 1.3rem;
-    letter-spacing: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'%3E%3Cpolygon points='0,0 100,0 100,100' fill='%236b1029'/%3E%3Cpolygon points='0,0 100,100 0,100' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,100 100,200' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,200 0,200' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,0 200,100' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,100 100,100' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,100 200,200' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,200 100,200' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,0 300,100' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,100 200,100' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,100 300,200' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,200 200,200' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,0 400,100' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,100 300,100' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,100 400,200' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,200 300,200' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,0 500,100' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,100 400,100' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,100 500,200' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,200 400,200' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,0 600,100' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,100 500,100' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,100 600,200' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,200 500,200' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,0 700,100' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,100 600,100' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,100 700,200' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,200 600,200' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,0 800,100' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,100 700,100' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,100 800,200' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,200 700,200' fill='%23ffdb5c'/%3E%3C/svg%3E");
     background-size: cover;
     background-position: center;
@@ -68,200 +50,23 @@
     -webkit-text-fill-color: transparent;
     display: inline-block;
   }
-  nav { display: flex; gap: 2rem; align-items: center; }
-  nav a.navlink {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--muted);
-    position: relative;
-    padding-bottom: 4px;
-  }
-  nav a.navlink:hover { color: var(--ink); }
-  nav a.navlink::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -1px;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s ease;
-  }
-  nav a.navlink.active { color: var(--ink); }
-  nav a.navlink.active::after { transform: scaleX(1); }
+  .back-link { font-size: 0.85rem; color: var(--muted); }
+  .back-link:hover { color: var(--accent); }
 
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-  }
-  .menu-toggle span {
-    width: 20px;
-    height: 2px;
-    background: var(--ink);
-    border-radius: 2px;
-  }
+  main { padding: clamp(2.5rem, 6vw, 4rem) 0; flex: 1; }
 
-  @media (max-width: 640px) {
-    .menu-toggle { display: flex; }
-    nav {
-      position: fixed;
-      top: 61px;
-      left: 0; right: 0;
-      background: var(--bg);
-      border-bottom: 1px solid var(--line);
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-      padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1rem;
-      transform: translateY(-8px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.15s ease, transform 0.15s ease;
-    }
-    nav.open {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-    nav a.navlink { padding: 0.6rem 0; width: 100%; }
-    nav .login-icon { margin-top: 0.5rem; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; }
+  h1 svg { width: 24px; height: 24px; stroke: var(--accent); flex-shrink: 0; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; }
+  .id-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .id-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--card-bg); border: 1px solid var(--line);
+    border-radius: 20px; padding: 4px 12px 4px 4px; font-size: 0.85rem;
   }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.55rem 1.1rem;
-    border-radius: 6px;
-    border: 1px solid var(--line);
-  }
-  .btn:hover { border-color: var(--accent); color: var(--accent); }
-  .btn-primary { background: var(--accent); color: #ffffff; border-color: var(--accent); }
-  .btn-primary:hover { color: #ffffff; opacity: 0.92; }
-  .login-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    color: var(--muted);
-    border: 1px solid var(--line);
-    flex-shrink: 0;
-  }
-  .login-icon:hover { color: var(--accent); border-color: var(--accent); }
+  .id-chip img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; display: block; }
 
-  .hero {
-    padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem);
-    text-align: center;
-  }
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--accent-tint);
-    color: #F0A870;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 0.3rem 0.75rem;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
-  }
-  h1 {
-    font-size: clamp(2.2rem, 5.5vw, 3.4rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.12;
-    max-width: 700px;
-    margin: 0 auto 1.25rem;
-  }
-  .hero-title {
-    font-family: 'Germania One', cursive;
-    font-weight: 400;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'%3E%3Cpolygon points='0,0 100,0 100,100' fill='%236b1029'/%3E%3Cpolygon points='0,0 100,100 0,100' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,100 100,200' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,200 0,200' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,0 200,100' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,100 100,100' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,100 200,200' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,200 100,200' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,0 300,100' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,100 200,100' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,100 300,200' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,200 200,200' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,0 400,100' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,100 300,100' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,100 400,200' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,200 300,200' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,0 500,100' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,100 400,100' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,100 500,200' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,200 400,200' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,0 600,100' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,100 500,100' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,100 600,200' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,200 500,200' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,0 700,100' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,100 600,100' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,100 700,200' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,200 600,200' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,0 800,100' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,100 700,100' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,100 800,200' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,200 700,200' fill='%23ffdb5c'/%3E%3C/svg%3E");
-    background-size: cover;
-    background-position: center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-  }
-  .lede { color: var(--muted); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2.25rem; }
-  .hero-actions { display: flex; gap: 0.75rem; justify-content: center; }
-
-  .section { padding: clamp(2rem, 5vw, 3.5rem) 0; }
-  .section-head { text-align: center; max-width: 480px; margin: 0 auto 2.5rem; }
-  .section-head h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
-  .section-head p { color: var(--muted); font-size: 0.95rem; }
-
-  .grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-  @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: var(--card-shadow);
-    transition: border-color 0.15s ease;
-  }
-  .card:hover { border-color: var(--accent); }
-
-  .card-icon {
-    width: 38px; height: 38px; border-radius: 8px;
-    background: var(--accent-tint);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1rem;
-  }
-  .card-icon svg { width: 19px; height: 19px; stroke: var(--accent); }
-
-  .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-  .card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
-  .card-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
-  .card-link svg { width: 14px; height: 14px; stroke: var(--accent); }
-
-  .status-strip { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .status-inner { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem 0; font-size: 0.85rem; color: var(--muted); }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: #17A34A; flex-shrink: 0; }
-
-  footer { padding: 2rem 0 1.5rem; font-size: 0.8rem; color: var(--muted); margin-top: auto; }
-  .social-row { display: flex; justify-content: center; gap: 12px; margin-top: 1.25rem; }
-  .social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    color: var(--muted);
-    border: 1px solid var(--line);
-  }
-  .social-icon svg { width: 16px; height: 16px; }
-  .social-icon:hover { color: var(--accent); border-color: var(--accent); }
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 1rem;
-  }
-  .footer-inner > span { justify-self: start; }
-  .footer-inner > a[href="/about.html"] { justify-self: center; }
-  .footer-inner > a[href="/impressum.html"] { justify-self: end; }
-  .footer-link { color: var(--muted); }
-  .footer-link:hover { color: var(--accent); }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .hero, .section { animation: rise 0.5s ease-out; }
-    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  }
+  footer { padding: 1.5rem 0; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
 </style>
 </head>
 <body>
@@ -269,99 +74,94 @@
 <header>
   <div class="wrap header-inner">
     <a class="wordmark" href="/">semper aude</a>
-    <nav id="main-nav">
-      <a class="navlink" href="#blog">Blog</a>
-      <a class="navlink" href="#projekte">Projekte</a>
-      <a class="navlink" href="#buecher">Bücher</a>
-      <a class="login-icon" href="/homebase.html" aria-label="Login">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"/><path d="M12 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M8 11v-4a4 4 0 1 1 8 0v4"/></svg>
-      </a>
-    </nav>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a class="back-link" href="/">&larr; Zurück zur Startseite</a>
   </div>
 </header>
 
-<section class="hero wrap">
-  <h1 class="hero-title">semper aude</h1>
-  <p class="lede">
-    Notizen. Projekte. Bücher.
-  </p>
-</section>
-
-<section class="section wrap" id="uebersicht">
-  <div class="grid">
-
-    <div class="card" id="blog">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5a1 1 0 00-1-1H4a1 1 0 00-1 1v6a1 1 0 001 1h3v3c0 2-2 3-4 3z"/><path d="M14 21c3 0 7-1 7-8V5a1 1 0 00-1-1h-5a1 1 0 00-1 1v6a1 1 0 001 1h3v3c0 2-2 3-4 3z"/></svg>
-      </div>
-      <h3>Blog</h3>
-      <p>Gedanken zu Projekten, Technik und dem, was gerade beschäftigt.</p>
-      <a class="card-link" href="#">Bald verfügbar</a>
-    </div>
-
-    <div class="card" id="projekte">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"/><path d="M14.5 5.5l4 4"/><path d="M12 8l-5 -5l-4 4l5 5"/><path d="M7 8l-1.5 1.5"/><path d="M16 12l5 5l-4 4l-5 -5"/><path d="M16 17l-1.5 1.5"/></svg>
-      </div>
-      <h3>Projekte</h3>
-      <p>Alles rund um Smart Home, Selfhosting und was sonst noch entsteht.</p>
-      <a class="card-link" href="#">Bald verfügbar</a>
-    </div>
-
-    <div class="card" id="buecher">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h8"/></svg>
-      </div>
-      <h3>Bücher</h3>
-      <p>Gelesenes und Empfehlungen, kurz notiert.</p>
-      <a class="card-link" href="#">Bald verfügbar</a>
-    </div>
-
+<main class="wrap">
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+    <h1>
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12l0 7a2 2 0 0 0 2 2l10 0a2 2 0 0 0 2 -2l0 -7"/><path d="M9 21l0 -6a2 2 0 0 1 2 -2l2 0a2 2 0 0 1 2 2l0 6"/></svg>
+      HomeBase <span style="color:var(--muted); font-weight:400;">&ndash;</span> Startseite
+    </h1>
+    <select id="page-switcher" onchange="if(this.value) location.href=this.value;" style="background: var(--card-bg); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem;">
+      <option value="index.html" selected>Startseite</option>
+      <option value="systemstatus.html">Systemstatus</option>
+    </select>
   </div>
-</section>
+  <div class="subtitle" id="live-clock" style="margin-top: 0.5rem; margin-bottom: 0.3rem;">&nbsp;</div>
+  <div class="id-row" id="id-row" style="visibility:hidden;">
+    <span class="subtitle" style="margin-bottom:0;">Angemeldet als:</span>
+    <span class="id-chip"><img src="avatar.jpg" alt="" id="user-avatar"><span id="user-name">&ndash;</span></span>
+    <span class="subtitle" style="margin-bottom:0;">mit</span>
+    <span class="id-chip" id="device-chip"><span id="device-label">&ndash;</span></span>
+  </div>
+</main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <span>&copy; 2026 semper-au.de</span>
-    <a class="footer-link" href="/about.html">About</a>
-    <a class="footer-link" href="/impressum.html">Impressum</a>
-  </div>
-  <div class="wrap social-row">
-    <a class="social-icon" href="https://www.linkedin.com/in/christoph-w-mueller/" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0 -4 0"/><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/></svg>
-    </a>
-    <a class="social-icon" href="https://www.instagram.com/stuporcosmi/" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
-    </a>
-  </div>
+  &copy; 2026 semper-au.de
 </footer>
 
 <script>
-  // Hamburger-Menü fürs Handy
-  var toggle = document.getElementById('menu-toggle');
-  var nav = document.getElementById('main-nav');
-  toggle.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  nav.querySelectorAll('a.navlink').forEach(function(link) {
-    link.addEventListener('click', function() {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+function aktualisiereUhrzeit() {
+  const jetzt = new Date();
+  const formatiert = new Intl.DateTimeFormat('de-DE', {
+    timeZone: 'Europe/Berlin',
+    weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  }).format(jetzt);
+  document.getElementById('live-clock').textContent = formatiert;
+}
+aktualisiereUhrzeit();
+setInterval(aktualisiereUhrzeit, 1000);
 
-  // Aktiven Nav-Link beim Klick markieren
-  var navLinks = nav.querySelectorAll('a.navlink');
-  navLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-      navLinks.forEach(function(l) { l.classList.remove('active'); });
-      link.classList.add('active');
-    });
-  });
+function ermittleGeraet() {
+  const ua = navigator.userAgent;
+  let os = 'Unbekannt';
+  if (/iPhone/.test(ua)) { os = 'iPhone'; }
+  else if (/iPad/.test(ua)) { os = 'iPad'; }
+  else if (/Android/.test(ua)) { os = 'Android'; }
+  else if (/Macintosh/.test(ua)) { os = 'Mac'; }
+  else if (/Windows/.test(ua)) { os = 'Windows'; }
+  else if (/Linux/.test(ua)) { os = 'Linux'; }
+
+  let browser = 'Browser';
+  if (/Firefox\//.test(ua)) browser = 'Firefox';
+  else if (/Edg\//.test(ua)) browser = 'Edge';
+  else if (/Chrome\//.test(ua) && !/Chromium/.test(ua)) browser = 'Chrome';
+  else if (/Safari\//.test(ua) && !/Chrome/.test(ua)) browser = 'Safari';
+
+  return os + ' \u00b7 ' + browser;
+}
+
+async function zeigeAnmeldeinfo() {
+  try {
+    const res = await fetch('/cdn-cgi/access/get-identity', { credentials: 'include' });
+    const data = await res.json();
+    const email = data.email || '';
+
+    const namensZuordnung = {
+      'christoph.wolfgang.mueller@tuta.io': 'Christoph'
+    };
+    let name = namensZuordnung[email.toLowerCase()];
+    if (!name) {
+      name = email.split('@')[0];
+      name = name.charAt(0).toUpperCase() + name.slice(1);
+    }
+
+    document.getElementById('user-name').textContent = name;
+    document.getElementById('device-label').textContent = ermittleGeraet();
+    document.getElementById('id-row').style.visibility = 'visible';
+  } catch (e) {
+    document.getElementById('id-row').style.display = 'none';
+  }
+}
+zeigeAnmeldeinfo();
 </script>
 
 </body>
