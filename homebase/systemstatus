@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>HomeBase &ndash; semper aude</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0D1117;
+    --bg-alt: #161B22;
+    --card-bg: #161B22;
+    --ink: #E6EDF3;
+    --muted: #8B949E;
+    --line: #30363D;
+    --accent: #F0813A;
+    --accent-tint: #3A2415;
+    --green: #5fb87a;
+    --red: #d9645a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  header { border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; }
+  .wordmark {
+    font-family: 'Germania One', cursive;
+    font-weight: 400;
+    font-size: 1.3rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'%3E%3Cpolygon points='0,0 100,0 100,100' fill='%236b1029'/%3E%3Cpolygon points='0,0 100,100 0,100' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,100 100,200' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,200 0,200' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,0 200,100' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,100 100,100' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,100 200,200' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,200 100,200' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,0 300,100' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,100 200,100' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,100 300,200' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,200 200,200' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,0 400,100' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,100 300,100' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,100 400,200' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,200 300,200' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,0 500,100' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,100 400,100' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,100 500,200' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,200 400,200' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,0 600,100' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,100 500,100' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,100 600,200' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,200 500,200' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,0 700,100' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,100 600,100' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,100 700,200' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,200 600,200' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,0 800,100' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,100 700,100' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,100 800,200' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,200 700,200' fill='%23ffdb5c'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  .back-link { font-size: 0.85rem; color: var(--muted); }
+  .back-link:hover { color: var(--accent); }
+
+  main { padding: clamp(2.5rem, 6vw, 4rem) 0; flex: 1; }
+
+  h1 { font-size: 1.6rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 2.5rem; }
+
+  .grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+  @media (min-width: 560px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 860px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .service-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    transition: border-color 0.15s ease;
+  }
+  .service-card:hover { border-color: var(--accent); }
+
+  .service-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--accent-tint);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .service-icon svg { width: 20px; height: 20px; stroke: var(--accent); }
+
+  .service-name { font-size: 0.95rem; font-weight: 600; }
+  .service-url { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .service-info { min-width: 0; }
+  .badges { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+  .badges img { height: 20px; display: block; }
+
+  .infra-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+  .infra-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    transition: border-color 0.15s ease;
+  }
+  .infra-item:hover { border-color: var(--accent); }
+  .infra-name { font-size: 0.95rem; font-weight: 600; }
+
+  .fritz-card {
+    display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    max-width: 420px;
+    margin-top: 2.5rem;
+    transition: border-color 0.15s ease;
+  }
+  .fritz-card:hover { border-color: var(--accent); }
+  .reach-badge {
+    display: inline-block; margin-top: 6px; font-size: 0.78rem;
+    border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px;
+  }
+  @keyframes fb-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  #fb-refresh-icon.spinning { animation: fb-spin 0.6s linear; }
+  .fritz-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .fritz-stats { display: flex; gap: 10px; margin-bottom: 14px; }
+  .fritz-stat { flex: 1; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+  .fritz-stat-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 2px; }
+  .fritz-stat-value { font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+  .fritz-status-row { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--line); }
+  .fritz-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); display: inline-block; }
+  .fritz-toggle {
+    width: 100%; margin-top: 10px; background: var(--bg); border: 1px solid var(--line);
+    border-radius: 8px; color: var(--ink); padding: 10px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; font-family: inherit; font-size: 0.85rem;
+  }
+  .fritz-device-row { display: flex; justify-content: space-between; padding: 7px 4px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink); }
+
+  footer { padding: 1.5rem 0; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="wordmark" href="/">semper aude</a>
+    <a class="back-link" href="/">&larr; Zurück zur Startseite</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+    <h1 style="margin-bottom:0;">HomeBase <span style="color:var(--muted); font-weight:400;">&ndash;</span> Systemstatus</h1>
+    <select id="page-switcher" onchange="if(this.value) location.href=this.value;" style="background: var(--card-bg); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem;">
+      <option value="index.html">Startseite</option>
+      <option value="systemstatus.html" selected>Systemstatus</option>
+    </select>
+  </div>
+  <div class="subtitle" id="live-clock" style="margin-bottom: 0.3rem;">&nbsp;</div>
+  <div class="subtitle" id="welcome-text" style="margin-bottom: 2.5rem;">&nbsp;</div>
+
+  <div class="grid">
+
+    <a class="service-card" href="http://192.168.178.116:8123">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12l0 7a2 2 0 0 0 2 2l10 0a2 2 0 0 0 2 -2l0 -7"/><path d="M9 21l0 -6a2 2 0 0 1 2 -2l2 0a2 2 0 0 1 2 2l0 6"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="service-name">Home Assistant</div>
+        <div class="service-url">192.168.178.116:8123</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/4/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/4/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
+      </div>
+    </a>
+
+    <a class="service-card" href="https://192.168.178.116:9200">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.55 3.464 3.464c0 1.913 -1.551 3.464 -3.464 3.464"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="service-name">OpenCloud</div>
+        <div class="service-url">192.168.178.116:9200</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/8/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/8/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
+      </div>
+    </a>
+
+    <a class="service-card" href="http://192.168.178.116:2283">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.086 -3.086a2 2 0 0 0 -2.828 0l-6.086 6.086"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="service-name">Immich</div>
+        <div class="service-url">192.168.178.116:2283</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/2/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/2/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
+      </div>
+    </a>
+
+    <a class="service-card" href="http://192.168.178.116:8777">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h8"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="service-name">Paperless</div>
+        <div class="service-url">192.168.178.116:8777</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/1/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/1/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="infra-row">
+    <a class="infra-item" href="http://192.168.178.116:9000" target="_blank" rel="noopener">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 3v18"/><path d="M4 7.5l8 4.5l8-4.5"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="infra-name">Portainer</div>
+        <div class="service-url">192.168.178.116:9000</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/3/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/3/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
+      </div>
+    </a>
+    <a class="infra-item" href="https://192.168.178.116:9443" target="_blank" rel="noopener">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1"/><rect x="3" y="13" width="18" height="7" rx="1"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
+      </div>
+      <div class="service-info">
+        <div class="infra-name">NAS</div>
+        <div class="service-url">192.168.178.116:9443</div>
+        <div class="badges">
+          <img src="https://status.semper-au.de/api/badge/5/status?style=flat-square" alt="Status">
+          <img src="https://status.semper-au.de/api/badge/5/uptime/24?style=flat-square" alt="Uptime 24h">
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <a class="fritz-card" id="fritzbox-card" href="http://192.168.178.1" target="_blank" rel="noopener">
+    <div class="fritz-header" style="justify-content: space-between;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div class="service-icon" style="background: var(--accent-tint);">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="6" rx="1"/><path d="M6 18h.01M10 18h.01"/><path d="M12 14v-4a4 4 0 0 1 4 -4h4"/></svg>
+        </div>
+        <div class="service-info">
+          <div class="infra-name">FritzBox</div>
+          <div class="service-url" style="margin-bottom:0">192.168.178.1 &middot; FritzOS <span id="fb-fritzos">&ndash;</span></div>
+          <span id="fb-reachable-badge" class="reach-badge">Lädt&hellip;</span>
+        </div>
+      </div>
+      <svg id="fb-refresh-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2M4 5v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></svg>
+    </div>
+
+    <div class="fritz-stats">
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Download</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6l6-6"/></svg>
+          <span id="fb-down">&ndash;</span>
+        </div>
+      </div>
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Upload</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6l6 6"/></svg>
+          <span id="fb-up">&ndash;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fritz-stats">
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Max. Download</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M13.41 12.59l2.59 -2.59"/><path d="M7 13a5 5 0 1 1 10 0"/><path d="M4.5 13a8 8 0 1 1 15 3.5"/></svg>
+          <span id="fb-maxdown">&ndash;</span>
+        </div>
+      </div>
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Max. Upload</div>
+        <div class="fritz-stat-value" style="display:flex; align-items:center; gap:5px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M13.41 12.59l2.59 -2.59"/><path d="M7 13a5 5 0 1 1 10 0"/><path d="M4.5 13a8 8 0 1 1 15 3.5"/></svg>
+          <span id="fb-maxup">&ndash;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fritz-status-row">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="fritz-dot" id="fb-dot"></span>
+        <span style="font-size:0.85rem; color: var(--ink);" id="fb-status">Lädt&hellip;</span>
+      </div>
+      <span style="font-size:0.85rem; color: var(--muted);" id="fb-uptime"></span>
+    </div>
+
+    <div class="fritz-stats" style="margin-top: 10px;">
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">Geräte online</div>
+        <div class="fritz-stat-value" id="fb-count-total">&ndash;</div>
+      </div>
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">via WLAN</div>
+        <div class="fritz-stat-value" id="fb-count-wlan">&ndash;</div>
+      </div>
+      <div class="fritz-stat">
+        <div class="fritz-stat-label">via Ethernet</div>
+        <div class="fritz-stat-value" id="fb-count-lan">&ndash;</div>
+      </div>
+    </div>
+
+    <button class="fritz-toggle" id="fb-toggle">
+      <span id="fb-devicecount">Geräte werden geladen&hellip;</span>
+      <span id="fb-chev">&#9662;</span>
+    </button>
+
+    <div id="fb-devicelist" style="display:none; margin-top:8px;"></div>
+  </a>
+</main>
+
+<footer>
+  &copy; 2026 semper-au.de
+</footer>
+
+<script>
+async function ladeFritzStatus() {
+  const icon = document.getElementById('fb-refresh-icon');
+  icon.classList.remove('spinning');
+  void icon.offsetWidth;
+  icon.classList.add('spinning');
+  try {
+    const res = await fetch('https://fritz-status.semper-au.de/api/status', { credentials: 'include' });
+    const data = await res.json();
+    document.getElementById('fb-down').textContent = data.download_kbit + ' kbit/s';
+    document.getElementById('fb-up').textContent = data.upload_kbit + ' kbit/s';
+    document.getElementById('fb-maxdown').textContent = (data.max_down_kbit / 1000).toFixed(1) + ' Mbit/s';
+    document.getElementById('fb-maxup').textContent = (data.max_up_kbit / 1000).toFixed(1) + ' Mbit/s';
+    document.getElementById('fb-fritzos').textContent = data.fritzos_version || '?';
+    const badge = document.getElementById('fb-reachable-badge');
+    badge.textContent = 'Erreichbar';
+    badge.style.color = 'var(--green)';
+    badge.style.borderColor = 'var(--green)';
+    document.getElementById('fb-status').textContent = data.verbunden ? 'Verbunden' : 'Getrennt';
+    document.getElementById('fb-dot').style.background = data.verbunden ? 'var(--green)' : 'var(--red)';
+    document.getElementById('fb-uptime').textContent = 'Uptime ' + Math.floor(data.uptime_sekunden / 3600) + ' Std.';
+  } catch (e) {
+    document.getElementById('fb-status').textContent = 'Nicht erreichbar';
+    const badge = document.getElementById('fb-reachable-badge');
+    badge.textContent = 'Nicht erreichbar';
+    badge.style.color = 'var(--red)';
+    badge.style.borderColor = 'var(--red)';
+  }
+}
+
+async function ladeFritzGeraete() {
+  try {
+    const res = await fetch('https://fritz-status.semper-au.de/api/devices', { credentials: 'include' });
+    const data = await res.json();
+    document.getElementById('fb-devicecount').textContent = data.anzahl_online + ' Geräte online';
+
+    const wlanCount = data.geraete.filter(g => g.verbindung === 'WLAN').length;
+    const lanCount = data.geraete.filter(g => g.verbindung !== 'WLAN').length;
+    document.getElementById('fb-count-total').textContent = data.anzahl_online;
+    document.getElementById('fb-count-wlan').textContent = wlanCount;
+    document.getElementById('fb-count-lan').textContent = lanCount;
+
+    document.getElementById('fb-devicelist').innerHTML = data.geraete.map(g =>
+      '<div class="fritz-device-row"><span>' + g.name + ' <span style="color:var(--muted); font-size:0.72rem;">(' + g.verbindung + ')</span></span><span style="color:var(--muted);">' + g.ip + '</span></div>'
+    ).join('');
+  } catch (e) {
+    document.getElementById('fb-devicecount').textContent = 'Nicht abrufbar';
+  }
+}
+
+document.getElementById('fb-toggle').addEventListener('click', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const list = document.getElementById('fb-devicelist');
+  const open = list.style.display === 'block';
+  list.style.display = open ? 'none' : 'block';
+  document.getElementById('fb-chev').innerHTML = open ? '&#9662;' : '&#9652;';
+});
+
+document.getElementById('fb-devicelist').addEventListener('click', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+});
+
+ladeFritzStatus();
+ladeFritzGeraete();
+setInterval(ladeFritzStatus, 15000);
+setInterval(ladeFritzGeraete, 15000);
+
+function aktualisiereUhrzeit() {
+  const jetzt = new Date();
+  const formatiert = new Intl.DateTimeFormat('de-DE', {
+    timeZone: 'Europe/Berlin',
+    weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  }).format(jetzt);
+  document.getElementById('live-clock').textContent = formatiert;
+}
+aktualisiereUhrzeit();
+setInterval(aktualisiereUhrzeit, 1000);
+
+async function zeigeWillkommenstext() {
+  try {
+    const res = await fetch('/cdn-cgi/access/get-identity', { credentials: 'include' });
+    const data = await res.json();
+    const email = data.email || '';
+
+    const namensZuordnung = {
+      'christoph.wolfgang.mueller@tuta.io': 'Christoph'
+    };
+    let name = namensZuordnung[email.toLowerCase()];
+    if (!name) {
+      name = email.split('@')[0];
+      name = name.charAt(0).toUpperCase() + name.slice(1);
+    }
+
+    const stunde = new Date().getHours();
+    const minute = new Date().getMinutes();
+    const zeitInMinuten = stunde * 60 + minute;
+
+    let text;
+    if (zeitInMinuten >= 360 && zeitInMinuten <= 540) {
+      text = 'Guten Morgen, ' + name + '.';
+    } else if (zeitInMinuten >= 541 && zeitInMinuten <= 1020) {
+      text = 'Hallo, ' + name + '.';
+    } else if (zeitInMinuten >= 1021 && zeitInMinuten <= 1320) {
+      text = 'Guten Abend, ' + name + '.';
+    } else {
+      text = 'So spät noch wach, ' + name + '?';
+    }
+
+    document.getElementById('welcome-text').textContent = text;
+  } catch (e) {
+    document.getElementById('welcome-text').textContent = '';
+  }
+}
+zeigeWillkommenstext();
+</script>
+
+</body>
+</html>
