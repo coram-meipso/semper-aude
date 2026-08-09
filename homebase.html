@@ -149,8 +149,14 @@
 </header>
 
 <main class="wrap">
-  <h1>HomeBase</h1>
-  <div class="subtitle" id="live-clock" style="margin-bottom: 2.5rem;">&nbsp;</div>
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+    <h1 style="margin-bottom:0;">HomeBase <span style="color:var(--muted); font-weight:400;">&ndash;</span> Systemstatus</h1>
+    <select id="page-switcher" onchange="if(this.value) location.href=this.value;" style="background: var(--card-bg); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem;">
+      <option value="homebase.html" selected>Systemstatus</option>
+    </select>
+  </div>
+  <div class="subtitle" id="live-clock" style="margin-bottom: 0.3rem;">&nbsp;</div>
+  <div class="subtitle" id="welcome-text" style="margin-bottom: 2.5rem;">&nbsp;</div>
 
   <div class="grid">
 
@@ -411,6 +417,36 @@ function aktualisiereUhrzeit() {
 }
 aktualisiereUhrzeit();
 setInterval(aktualisiereUhrzeit, 1000);
+
+async function zeigeWillkommenstext() {
+  try {
+    const res = await fetch('/cdn-cgi/access/get-identity', { credentials: 'include' });
+    const data = await res.json();
+    const email = data.email || '';
+    let name = email.split('@')[0];
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+
+    const stunde = new Date().getHours();
+    const minute = new Date().getMinutes();
+    const zeitInMinuten = stunde * 60 + minute;
+
+    let text;
+    if (zeitInMinuten >= 360 && zeitInMinuten <= 540) {
+      text = 'Guten Morgen, ' + name + '.';
+    } else if (zeitInMinuten >= 541 && zeitInMinuten <= 1020) {
+      text = 'Hallo, ' + name + '.';
+    } else if (zeitInMinuten >= 1021 && zeitInMinuten <= 1320) {
+      text = 'Guten Abend, ' + name + '.';
+    } else {
+      text = 'So spät noch wach, ' + name + '?';
+    }
+
+    document.getElementById('welcome-text').textContent = text;
+  } catch (e) {
+    document.getElementById('welcome-text').textContent = '';
+  }
+}
+zeigeWillkommenstext();
 </script>
 
 </body>
