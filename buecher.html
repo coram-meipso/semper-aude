@@ -78,30 +78,30 @@
 
   .book-tile {
     cursor: pointer;
-    border: 1px solid var(--line);
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 1rem;
+    border: none;
+    background: none;
+    padding: 0;
     text-align: left;
     color: inherit;
     font-family: inherit;
-    transition: border-color 0.15s ease;
   }
-  .book-tile:hover { border-color: var(--accent); }
   .book-cover {
     aspect-ratio: 3 / 4;
-    border-radius: 8px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: var(--bg);
-    margin-bottom: 0.9rem;
+    background: var(--bg-alt);
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
+  .book-tile:hover .book-cover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45); }
   .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .book-cover svg { width: 32px; height: 32px; stroke: var(--muted); }
-  .book-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
-  .book-author { font-size: 0.88rem; color: var(--muted); }
+  .book-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.15rem; }
+  .book-author { font-size: 0.85rem; color: var(--muted); }
 
   /* Modal */
   .modal-overlay {
