@@ -157,6 +157,8 @@
     letter-spacing: 0.04em; color: var(--muted); margin: 1.5rem 0 0.5rem;
   }
   .modal-desc { font-size: 0.92rem; color: var(--ink); line-height: 1.6; white-space: pre-line; }
+  .modal-desc a { color: var(--accent); font-weight: 600; }
+  .modal-desc a:hover { text-decoration: underline; }
   .modal-quote {
     border-left: 2px solid var(--accent);
     padding: 0.4rem 0 0.4rem 1rem;
@@ -337,8 +339,8 @@ function oeffneModal(buch) {
   zahl.textContent = (buch.rating != null ? buch.rating : '–') + ' / 5';
   starsEl.appendChild(zahl);
 
-  document.getElementById('modal-kurzbeschreibung').textContent = buch.kurzbeschreibung || '–';
-  document.getElementById('modal-infotext').textContent = buch.infotext || '–';
+  document.getElementById('modal-kurzbeschreibung').innerHTML = buch.kurzbeschreibung || '–';
+  document.getElementById('modal-infotext').innerHTML = buch.infotext || '–';
 
   const metaEl = document.getElementById('modal-meta');
   const metaZeilen = [];
