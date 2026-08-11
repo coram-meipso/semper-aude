@@ -89,7 +89,7 @@
   }
   .book-tile:hover { border-color: var(--accent); }
   .book-cover {
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 3 / 4;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -136,7 +136,7 @@
   .modal-close:hover { color: var(--accent); border-color: var(--accent); }
   .modal-head { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
   .modal-cover {
-    width: 100px; aspect-ratio: 2/3; border-radius: 6px; background: var(--bg);
+    width: 100px; aspect-ratio: 3/4; border-radius: 6px; background: var(--bg);
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     overflow: hidden;
   }
@@ -152,7 +152,8 @@
   .modal-meta { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
   .modal-meta a { color: var(--accent); font-weight: 600; }
   .modal-meta a:hover { text-decoration: underline; }
-  .modal-meta-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; }
+  .details-flex { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; margin: 1.5rem 0 0; }
+  .details-flex .modal-section-label { margin: 0 0 0.5rem; }
   .modal-author-photo-wrap {
     display: none;
     flex-direction: column;
@@ -227,9 +228,11 @@
     <div class="modal-desc" id="modal-kurzbeschreibung"></div>
     <div class="modal-section-label">Infotext</div>
     <div class="modal-desc" id="modal-infotext"></div>
-    <div class="modal-section-label">Details</div>
-    <div class="modal-meta-row">
-      <div class="modal-meta" id="modal-meta"></div>
+    <div class="details-flex">
+      <div>
+        <div class="modal-section-label">Details</div>
+        <div class="modal-meta" id="modal-meta"></div>
+      </div>
       <div class="modal-author-photo-wrap" id="modal-author-photo-wrap">
         <img class="modal-author-photo" id="modal-author-photo" alt="">
         <div class="modal-author-photo-caption" id="modal-author-photo-caption"></div>
