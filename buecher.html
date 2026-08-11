@@ -197,10 +197,19 @@
   .modal-desc { font-size: 0.92rem; color: var(--ink); line-height: 1.6; white-space: pre-line; }
   .modal-desc a { color: var(--accent); font-weight: 600; }
   .modal-desc a:hover { text-decoration: underline; }
+  .quote-divider { position: relative; text-align: center; margin: 1.75rem 0 0.5rem; height: 1.6rem; }
+  .quote-divider::before {
+    content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px;
+    background: var(--line);
+  }
+  .quote-divider span {
+    position: relative; display: inline-block; background: var(--card-bg);
+    padding: 0 14px; font-family: Georgia, serif; font-size: 2.4rem;
+    line-height: 1; color: var(--accent);
+  }
   .modal-quote {
-    border-left: 2px solid var(--accent);
-    padding: 0.4rem 0 0.4rem 1rem;
-    margin-bottom: 0.75rem;
+    padding: 0 0 0.5rem;
+    margin-bottom: 0.25rem;
     font-size: 0.9rem;
     color: var(--ink);
   }
@@ -450,6 +459,11 @@ function oeffneModal(buch) {
   if (buch.quotes && buch.quotes.length > 0) {
     quotesBlock.style.display = 'block';
     buch.quotes.forEach(function(zitat) {
+      const divider = document.createElement('div');
+      divider.className = 'quote-divider';
+      divider.innerHTML = '<span>&rdquo;</span>';
+      quotesEl.appendChild(divider);
+
       // Zitat und Quellenangabe werden durch einen Doppelumbruch (\n\n) getrennt
       const teile = zitat.split('\n\n');
       const zitatText = teile[0];
