@@ -137,9 +137,32 @@
     width: 100px; aspect-ratio: 3/4; border-radius: 6px; background: var(--bg);
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     overflow: hidden;
+    position: relative;
   }
   .modal-cover img { width: 100%; height: 100%; object-fit: cover; }
   .modal-cover svg { width: 28px; height: 28px; stroke: var(--muted); }
+  .cover-zoom-btn {
+    position: absolute; bottom: 5px; right: 5px;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(13, 17, 23, 0.75); border: none;
+    display: none; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0;
+  }
+  .cover-zoom-btn.visible { display: flex; }
+  .cover-zoom-btn svg { width: 13px; height: 13px; stroke: #fff; }
+
+  .cover-lightbox {
+    position: fixed; inset: 0;
+    background: rgba(3, 5, 8, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 200;
+    cursor: zoom-out;
+  }
+  .cover-lightbox.open { display: flex; }
+  .cover-lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 6px; }
   .modal-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
   .modal-author { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
   .modal-stars { display: flex; align-items: center; gap: 6px; margin-top: 0.4rem; }
@@ -215,7 +238,12 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
     <div class="modal-head">
-      <div class="modal-cover" id="modal-cover"></div>
+      <div class="modal-cover" id="modal-cover">
+        <div id="modal-cover-inner" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"></div>
+        <button class="cover-zoom-btn" id="cover-zoom-btn" type="button" aria-label="Cover vergrößern">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg>
+        </button>
+      </div>
       <div>
         <div class="modal-title" id="modal-title"></div>
         <div class="modal-author" id="modal-author"></div>
@@ -241,6 +269,10 @@
       <div id="modal-quotes"></div>
     </div>
   </div>
+</div>
+
+<div class="cover-lightbox" id="cover-lightbox">
+  <img id="cover-lightbox-img" src="" alt="">
 </div>
 
 <script>
@@ -356,9 +388,18 @@ function oeffneModal(buch) {
   document.getElementById('modal-title').textContent = buch.title;
   document.getElementById('modal-author').textContent = buch.author;
 
-  const coverEl = document.getElementById('modal-cover');
+  const coverEl = document.getElementById('modal-cover-inner');
   coverEl.innerHTML = '';
   coverEl.appendChild(baueCover(buch));
+
+  const zoomBtn = document.getElementById('cover-zoom-btn');
+  if (buch.cover) {
+    zoomBtn.classList.add('visible');
+    zoomBtn.onclick = function() { oeffneCoverLightbox(buch.cover, buch.title); };
+  } else {
+    zoomBtn.classList.remove('visible');
+    zoomBtn.onclick = null;
+  }
 
   const starsEl = document.getElementById('modal-stars');
   starsEl.innerHTML = '';
@@ -457,8 +498,23 @@ overlay.addEventListener('click', function(e) {
   if (e.target === overlay) schliesseModal();
 });
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') schliesseModal();
+  if (e.key === 'Escape') { schliesseModal(); schliesseCoverLightbox(); }
 });
+
+const coverLightbox = document.getElementById('cover-lightbox');
+const coverLightboxImg = document.getElementById('cover-lightbox-img');
+
+function oeffneCoverLightbox(src, titel) {
+  coverLightboxImg.src = src;
+  coverLightboxImg.alt = titel;
+  coverLightbox.classList.add('open');
+}
+
+function schliesseCoverLightbox() {
+  coverLightbox.classList.remove('open');
+}
+
+coverLightbox.addEventListener('click', schliesseCoverLightbox);
 </script>
 
 </body>
