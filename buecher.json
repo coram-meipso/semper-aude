@@ -4,7 +4,7 @@
     {
       "title": "Aller Welt Freund",
       "author": "Jurek Becker",
-      "cover": "2026_becker.jpg",
+      "cover": "covers/2026_becker.jpg",
       "jahr": 2026,
       "rating": 4.5,
       "kurzbeschreibung": "folgt...",
@@ -18,3 +18,5 @@
         "Zitat2"
       ]
     }
+  ]
+}
