@@ -164,10 +164,11 @@
     padding: 0.4rem 0 0.4rem 1rem;
     margin-bottom: 0.75rem;
     font-size: 0.9rem;
-    font-style: italic;
     color: var(--ink);
-    white-space: pre-line;
   }
+  .quote-text { font-style: italic; white-space: pre-line; }
+  .quote-source { font-style: normal; font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; white-space: pre-line; }
+  .citation-author { font-variant: small-caps; letter-spacing: 0.03em; }
 
   footer { padding: 1.5rem 0; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
 </style>
@@ -368,9 +369,36 @@ function oeffneModal(buch) {
   if (buch.quotes && buch.quotes.length > 0) {
     quotesBlock.style.display = 'block';
     buch.quotes.forEach(function(zitat) {
+      // Zitat und Quellenangabe werden durch einen Doppelumbruch (\n\n) getrennt
+      const teile = zitat.split('\n\n');
+      const zitatText = teile[0];
+      const quelle = teile.slice(1).join('\n\n');
+
       const div = document.createElement('div');
       div.className = 'modal-quote';
-      div.textContent = '\u201e' + zitat + '\u201c';
+
+      const zitatEl = document.createElement('div');
+      zitatEl.className = 'quote-text';
+      zitatEl.textContent = '\u201e' + zitatText + '\u201c';
+      div.appendChild(zitatEl);
+
+      if (quelle) {
+        const quelleEl = document.createElement('div');
+        quelleEl.className = 'quote-source';
+        // Erstes Wort der Quellenangabe (Nachname) wird in Kapitälchen gesetzt
+        const leerzeichenIndex = quelle.indexOf(' ');
+        if (leerzeichenIndex > -1) {
+          const autor = document.createElement('span');
+          autor.className = 'citation-author';
+          autor.textContent = quelle.slice(0, leerzeichenIndex);
+          quelleEl.appendChild(autor);
+          quelleEl.appendChild(document.createTextNode(quelle.slice(leerzeichenIndex)));
+        } else {
+          quelleEl.textContent = quelle;
+        }
+        div.appendChild(quelleEl);
+      }
+
       quotesEl.appendChild(div);
     });
   } else {
