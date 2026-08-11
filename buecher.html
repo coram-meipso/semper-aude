@@ -152,6 +152,12 @@
   .modal-meta { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
   .modal-meta a { color: var(--accent); font-weight: 600; }
   .modal-meta a:hover { text-decoration: underline; }
+  .modal-meta-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; }
+  .modal-author-photo {
+    width: 90px; aspect-ratio: 1 / 1; border-radius: 8px; object-fit: cover;
+    flex-shrink: 0; display: none;
+  }
+  .modal-author-photo.visible { display: block; }
   .modal-section-label {
     font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
     letter-spacing: 0.04em; color: var(--muted); margin: 1.5rem 0 0.5rem;
@@ -212,7 +218,10 @@
     <div class="modal-section-label">Infotext</div>
     <div class="modal-desc" id="modal-infotext"></div>
     <div class="modal-section-label">Details</div>
-    <div class="modal-meta" id="modal-meta"></div>
+    <div class="modal-meta-row">
+      <div class="modal-meta" id="modal-meta"></div>
+      <img class="modal-author-photo" id="modal-author-photo" alt="">
+    </div>
     <div id="modal-quotes-block">
       <div class="modal-section-label">Zitate</div>
       <div id="modal-quotes"></div>
@@ -345,6 +354,15 @@ function oeffneModal(buch) {
   document.getElementById('modal-infotext').innerHTML = buch.infotext || '–';
 
   const metaEl = document.getElementById('modal-meta');
+  const fotoEl = document.getElementById('modal-author-photo');
+  if (buch.autorfoto) {
+    fotoEl.src = buch.autorfoto;
+    fotoEl.alt = buch.author;
+    fotoEl.classList.add('visible');
+  } else {
+    fotoEl.classList.remove('visible');
+    fotoEl.removeAttribute('src');
+  }
   const metaZeilen = [];
   if (buch.verlag || buch.veroeffentlicht) {
     metaZeilen.push((buch.verlag || '–') + (buch.veroeffentlicht ? ', ' + buch.veroeffentlicht : ''));
