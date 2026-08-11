@@ -1,0 +1,52 @@
+{
+  "_hinweis": "Buchdaten für buecher.html. Neues Buch: weiteres Objekt in 'buecher' einfügen. Felder: title, author, cover (Bildpfad oder leer), jahr (Lesejahr, Zahl, bestimmt die Gruppierung), rating (0-5 in 0,5-Schritten), kurzbeschreibung, infotext (eigene, ausführlichere Gedanken), verlag, veroeffentlicht (Datum als Text, z.B. '2015' oder 'März 2015'), isbn, link (URL oder leer), quotes (Liste, kann leer sein: []).",
+  "buecher": [
+    {
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "cover": "",
+      "jahr": 2026,
+      "rating": 4.5,
+      "kurzbeschreibung": "Ein weiter Bogen von der kognitiven Revolution bis zur Gegenwart.",
+      "infotext": "Beeindruckend, wie Harari komplexe Zusammenhänge über zehntausende Jahre verständlich macht — besonders das Kapitel über gemeinsame Fiktionen als Grundlage großer Kooperation ist hängen geblieben.",
+      "verlag": "DVA",
+      "veroeffentlicht": "2015",
+      "isbn": "978-3-421-04566-1",
+      "link": "",
+      "quotes": [
+        "Hier steht ein Beispiel-Zitat aus dem Buch, das du gegen ein echtes ersetzen kannst.",
+        "Ein zweites Zitat kannst du hier ergänzen."
+      ]
+    },
+    {
+      "title": "Der Report der Magd",
+      "author": "Margaret Atwood",
+      "cover": "",
+      "jahr": 2025,
+      "rating": 4,
+      "kurzbeschreibung": "Beklemmender Roman über eine totalitäre Zukunftsgesellschaft.",
+      "infotext": "Erzählt aus der Perspektive einer Frau ohne Rechte — die ruhige, fast nüchterne Erzählstimme macht das Grauen erst richtig greifbar.",
+      "verlag": "Piper",
+      "veroeffentlicht": "1985",
+      "isbn": "978-3-492-31283-2",
+      "link": "",
+      "quotes": [
+        "Nolite te bastardes carborundorum."
+      ]
+    },
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "cover": "",
+      "jahr": 2025,
+      "rating": 3.5,
+      "kurzbeschreibung": "Wie kleine, wiederholte Verhaltensänderungen langfristig große Wirkung entfalten.",
+      "infotext": "Praktisch und gut strukturiert, auch wenn manche Beispiele sich wiederholen. Die Grundidee der '1%-Verbesserungen' ist im Alltag gut anwendbar.",
+      "verlag": "Goldmann",
+      "veroeffentlicht": "2018",
+      "isbn": "978-3-442-17693-9",
+      "link": "",
+      "quotes": []
+    }
+  ]
+}

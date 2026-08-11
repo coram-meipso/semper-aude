@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bücher &ndash; semper aude</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0D1117;
+    --bg-alt: #161B22;
+    --card-bg: #161B22;
+    --ink: #E6EDF3;
+    --muted: #8B949E;
+    --line: #30363D;
+    --accent: #F0813A;
+    --accent-tint: #3A2415;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  header { border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; }
+  .wordmark {
+    font-family: 'Germania One', cursive;
+    font-weight: 400;
+    font-size: 1.3rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'%3E%3Cpolygon points='0,0 100,0 100,100' fill='%236b1029'/%3E%3Cpolygon points='0,0 100,100 0,100' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,100 100,200' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,200 0,200' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,0 200,100' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,100 100,100' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,100 200,200' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,200 100,200' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,0 300,100' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,100 200,100' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,100 300,200' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,200 200,200' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,0 400,100' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,100 300,100' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,100 400,200' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,200 300,200' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,0 500,100' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,100 400,100' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,100 500,200' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,200 400,200' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,0 600,100' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,100 500,100' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,100 600,200' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,200 500,200' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,0 700,100' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,100 600,100' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,100 700,200' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,200 600,200' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,0 800,100' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,100 700,100' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,100 800,200' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,200 700,200' fill='%23ffdb5c'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  .back-link { font-size: 0.85rem; color: var(--muted); }
+  .back-link:hover { color: var(--accent); }
+
+  main { padding: clamp(2.5rem, 6vw, 4rem) 0; flex: 1; }
+
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 2.5rem; }
+
+  .year-heading {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2.5rem 0 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .year-heading:first-of-type { margin-top: 0; }
+
+  /* Buch-Grid */
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) { .book-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 900px) { .book-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .book-tile {
+    cursor: pointer;
+    border: 1px solid var(--line);
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: left;
+    color: inherit;
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+  }
+  .book-tile:hover { border-color: var(--accent); }
+  .book-cover {
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--bg);
+    margin-bottom: 0.9rem;
+  }
+  .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .book-cover svg { width: 32px; height: 32px; stroke: var(--muted); }
+  .book-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .book-author { font-size: 0.88rem; color: var(--muted); }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(3, 5, 8, 0.72);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    z-index: 100;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 50%; width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--muted);
+  }
+  .modal-close:hover { color: var(--accent); border-color: var(--accent); }
+  .modal-head { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
+  .modal-cover {
+    width: 100px; aspect-ratio: 2/3; border-radius: 6px; background: var(--bg);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    overflow: hidden;
+  }
+  .modal-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-cover svg { width: 28px; height: 28px; stroke: var(--muted); }
+  .modal-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .modal-author { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .modal-stars { display: flex; align-items: center; gap: 6px; margin-top: 0.4rem; }
+  .stars-track { position: relative; display: inline-block; line-height: 1; font-size: 1.1rem; letter-spacing: 2px; }
+  .stars-bg { color: var(--line); }
+  .stars-fill { position: absolute; top: 0; left: 0; overflow: hidden; white-space: nowrap; color: var(--accent); }
+  .rating-number { font-size: 0.8rem; color: var(--muted); }
+  .modal-meta { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
+  .modal-meta a { color: var(--accent); font-weight: 600; }
+  .modal-meta a:hover { text-decoration: underline; }
+  .modal-section-label {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--muted); margin: 1.5rem 0 0.5rem;
+  }
+  .modal-desc { font-size: 0.92rem; color: var(--ink); line-height: 1.6; }
+  .modal-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.4rem 0 0.4rem 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  footer { padding: 1.5rem 0; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="wordmark" href="/">semper aude</a>
+    <a class="back-link" href="/">&larr; Zurück zur Startseite</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Bücher</h1>
+  <div class="subtitle">Gelesenes und Empfehlungen &ndash; auf ein Cover klicken für mehr.</div>
+
+  <div id="book-grid"></div>
+</main>
+
+<footer>
+  &copy; 2026 semper-au.de
+</footer>
+
+<!-- Modal-Fenster, wird per JavaScript befüllt -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Schließen">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-head">
+      <div class="modal-cover" id="modal-cover"></div>
+      <div>
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-author" id="modal-author"></div>
+        <div class="modal-stars" id="modal-stars"></div>
+      </div>
+    </div>
+    <div class="modal-section-label">Kurzbeschreibung</div>
+    <div class="modal-desc" id="modal-kurzbeschreibung"></div>
+    <div class="modal-section-label">Infotext</div>
+    <div class="modal-desc" id="modal-infotext"></div>
+    <div class="modal-section-label">Details</div>
+    <div class="modal-meta" id="modal-meta"></div>
+    <div id="modal-quotes-block">
+      <div class="modal-section-label">Zitate</div>
+      <div id="modal-quotes"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Die Buchdaten liegen jetzt in der separaten Datei buecher.json
+   im selben Ordner. Dort trägst du neue Bücher ein — diese Seite
+   lädt die Datei automatisch bei jedem Aufruf.
+   ============================================================ */
+let buecher = [];
+
+async function ladeBuecher() {
+  try {
+    const res = await fetch('buecher.json');
+    const data = await res.json();
+    buecher = data.buecher || [];
+    zeigeBuecher();
+  } catch (e) {
+    document.getElementById('book-grid').innerHTML =
+      '<p style="color: var(--muted); grid-column: 1 / -1;">Bücher konnten nicht geladen werden. Liegt buecher.json im selben Ordner?</p>';
+  }
+}
+
+/* ============================================================
+   Ab hier: Technik, muss normalerweise nicht angepasst werden.
+   ============================================================ */
+
+function baueCover(buch) {
+  if (buch.cover) {
+    const img = document.createElement('img');
+    img.src = buch.cover;
+    img.alt = buch.title;
+    return img;
+  }
+  const platzhalter = document.createElement('div');
+  platzhalter.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>';
+  platzhalter.style.color = 'var(--muted)';
+  platzhalter.style.width = '32px';
+  platzhalter.style.height = '32px';
+  return platzhalter;
+}
+
+const grid = document.getElementById('book-grid');
+
+function zeigeBuecher() {
+  grid.innerHTML = '';
+
+  // Nach Lesejahr gruppieren, neuestes Jahr zuerst
+  const gruppen = {};
+  buecher.forEach(function(buch) {
+    const jahr = buch.jahr || 'Ohne Jahr';
+    if (!gruppen[jahr]) gruppen[jahr] = [];
+    gruppen[jahr].push(buch);
+  });
+  const jahre = Object.keys(gruppen).sort(function(a, b) { return b - a; });
+
+  jahre.forEach(function(jahr) {
+    const heading = document.createElement('h2');
+    heading.className = 'year-heading';
+    heading.textContent = jahr;
+    grid.appendChild(heading);
+
+    const jahrGrid = document.createElement('div');
+    jahrGrid.className = 'book-grid';
+
+    gruppen[jahr].forEach(function(buch) {
+      const tile = document.createElement('button');
+      tile.className = 'book-tile';
+      tile.setAttribute('type', 'button');
+
+      const coverWrap = document.createElement('div');
+      coverWrap.className = 'book-cover';
+      coverWrap.appendChild(baueCover(buch));
+
+      const titleEl = document.createElement('div');
+      titleEl.className = 'book-title';
+      titleEl.textContent = buch.title;
+
+      const authorEl = document.createElement('div');
+      authorEl.className = 'book-author';
+      authorEl.textContent = buch.author;
+
+      tile.appendChild(coverWrap);
+      tile.appendChild(titleEl);
+      tile.appendChild(authorEl);
+      tile.addEventListener('click', function() { oeffneModal(buch); });
+      jahrGrid.appendChild(tile);
+    });
+
+    grid.appendChild(jahrGrid);
+  });
+}
+
+ladeBuecher();
+
+function baueSterne(rating) {
+  const wert = Math.max(0, Math.min(5, rating || 0));
+  const prozent = (wert / 5) * 100;
+  const wrap = document.createElement('span');
+  wrap.className = 'stars-track';
+  wrap.innerHTML =
+    '<span class="stars-bg">&#9733;&#9733;&#9733;&#9733;&#9733;</span>' +
+    '<span class="stars-fill" style="width:' + prozent + '%;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>';
+  return wrap;
+}
+
+const overlay = document.getElementById('modal-overlay');
+
+function oeffneModal(buch) {
+  document.getElementById('modal-title').textContent = buch.title;
+  document.getElementById('modal-author').textContent = buch.author;
+
+  const coverEl = document.getElementById('modal-cover');
+  coverEl.innerHTML = '';
+  coverEl.appendChild(baueCover(buch));
+
+  const starsEl = document.getElementById('modal-stars');
+  starsEl.innerHTML = '';
+  starsEl.appendChild(baueSterne(buch.rating));
+  const zahl = document.createElement('span');
+  zahl.className = 'rating-number';
+  zahl.textContent = (buch.rating != null ? buch.rating : '–') + ' / 5';
+  starsEl.appendChild(zahl);
+
+  document.getElementById('modal-kurzbeschreibung').textContent = buch.kurzbeschreibung || '–';
+  document.getElementById('modal-infotext').textContent = buch.infotext || '–';
+
+  const metaEl = document.getElementById('modal-meta');
+  const metaZeilen = [];
+  if (buch.verlag || buch.veroeffentlicht) {
+    metaZeilen.push((buch.verlag || '–') + (buch.veroeffentlicht ? ', ' + buch.veroeffentlicht : ''));
+  }
+  if (buch.isbn) metaZeilen.push('ISBN: ' + buch.isbn);
+  metaEl.innerHTML = metaZeilen.map(function(z) { return '<div>' + z + '</div>'; }).join('');
+  if (buch.link) {
+    const linkDiv = document.createElement('div');
+    linkDiv.style.marginTop = '0.3rem';
+    const a = document.createElement('a');
+    a.href = buch.link;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'Mehr erfahren \u2192';
+    linkDiv.appendChild(a);
+    metaEl.appendChild(linkDiv);
+  }
+
+  const quotesBlock = document.getElementById('modal-quotes-block');
+  const quotesEl = document.getElementById('modal-quotes');
+  quotesEl.innerHTML = '';
+  if (buch.quotes && buch.quotes.length > 0) {
+    quotesBlock.style.display = 'block';
+    buch.quotes.forEach(function(zitat) {
+      const div = document.createElement('div');
+      div.className = 'modal-quote';
+      div.textContent = '\u201e' + zitat + '\u201c';
+      quotesEl.appendChild(div);
+    });
+  } else {
+    quotesBlock.style.display = 'none';
+  }
+
+  overlay.classList.add('open');
+}
+
+function schliesseModal() {
+  overlay.classList.remove('open');
+}
+
+document.getElementById('modal-close').addEventListener('click', schliesseModal);
+overlay.addEventListener('click', function(e) {
+  if (e.target === overlay) schliesseModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') schliesseModal();
+});
+</script>
+
+</body>
+</html>
