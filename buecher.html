@@ -274,6 +274,7 @@ function baueCover(buch) {
     const img = document.createElement('img');
     img.src = buch.cover;
     img.alt = buch.title;
+    img.style.objectPosition = buch.cover_position || 'center';
     if (buch.cover_zoom) {
       img.style.transform = 'scale(' + buch.cover_zoom + ')';
     }
