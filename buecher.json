@@ -2,6 +2,29 @@
   "_hinweis": "Buchdaten für buecher.html. Neues Buch: weiteres Objekt in 'buecher' einfügen. Felder: title, author, cover (Bildpfad oder leer), jahr (Lesejahr, Zahl, bestimmt die Gruppierung), rating (0-5 in 0,5-Schritten), kurzbeschreibung, infotext (eigene, ausführlichere Gedanken), verlag, veroeffentlicht (Datum als Text, z.B. '2015' oder 'März 2015'), isbn, link (URL oder leer), quotes (Liste, kann leer sein: []).",
   "buecher": [
     {
+      "title": "Sterben lernen",
+      "untertitel": "Das Buch für den Abschied",
+      "author": "Felix Hütten",
+      "cover": "covers/2026_huetten.jpg",
+      "cover_position": "center top",
+      "cover_zoom": 1.0,
+      "autorfoto": "covers/autoren/fhuetten.webp",
+      "autorfoto_position": "center 10%",
+      "autorfoto_quelle": "© privat",
+      "jahr": 2026,
+      "rating": 4.0,
+      "kurzbeschreibung": "-",
+      "infotext": "Tut das Sterben nach einer langen Krankheit weh? Wie kümmert man sich um Sterbende in ihren letzten Stunden? Was für Dokumente sollte jeder seinen Angehörigen zuliebe ausfüllen? Menschlich, lebhaft und unverkrampft gibt der junge Medizinjournalist Felix Hütten Antworten auf die unzähligen Fragen zum Sterben, über die wir alle viel zu selten sprechen. Von medizinischen Details über Ratschläge für den Umgang mit Ärzten oder die schwierige Frage nach dem Abstellen der Maschinen bis hin zur Trauer danach: Ohne falsche Tabus erzählt dieses alle angehende Buch vom Sterben, das zu jedem Leben dazugehört.\n\nQuelle: <a href=\"https://www.hanser-literaturverlage.de/buch/felix-huetten-sterben-lernen-9783446260252-t-2698" target=\"_blank\">Verlagsseite</a>",
+      "verlag": "Hanser Verlag",
+      "veroeffentlicht": "2019",
+      "isbn": "978-3-446-26025-2,
+      "link": "https://www.hanser-literaturverlage.de/buch/felix-huetten-sterben-lernen-9783446260252-t-2698",
+      "quotes": [
+        "Die letzten Meter des Lebens scheinen tatsächlich eine Art Programm zu sein. Am Ende, wenn es wirklich zu Ende geht, sterben alle Menschen gleich, irgendwann atmest du nicht mehr, verweigert dein Herz die Arbeit. Bis es aber so weit ist, unterscheiden sich die Dinge gewaltig.\n\nHütten 2019, S. 19",
+        "Gutes Sterben ist ein Sterben, das dir erlaubt, so zu bleiben, wie du bist, so gehen zu dürfen, wie du warst. Man stirbt, wie man lebt, und man begleitet Menschen beim Sterben so, wie man mit ihnen gelebt hat.\n\nHütten 2019, S. 106"
+      ]
+    },    
+    {
       "title": "Aller Welt Freund",
       "author": "Jurek Becker",
       "cover": "covers/2026_becker.jpg",
