@@ -137,22 +137,45 @@
       "cover_position": "center bottom",
       "cover_zoom": 1.0,
       "autorfoto": "covers/autoren/rschulz.webp",
-      "autorfoto_position": "center bottom%",
+      "autorfoto_position": "center bottom",
       "autorfoto_quelle": "© Dirk Bruniecki",
-      "jahr": 2020,
+      "jahr": 2026,
       "rating": 4.5,
       "kurzbeschreibung": "Ein ungewöhnliches Buch, anziehend und abstoßend, aber vor allem unheimlich interessant. (…) Man merkt nach ein paar Seiten, dass ›So sterben wir‹ so, wie es ist, genau richtig ist. Grenzüberschreitend, aber nicht im Spekulieren, sondern in der Weitergabe von Dingen, über die nicht jeder ständig nachdenken will.\n\nQuelle: Frankfurter Rundschau",
       "infotext": "Was passiert, wenn wir sterben?\nSterben, Tod und Trauer sind unumgänglich, für jeden von uns. Und doch wissen wir wenig darüber. Roland Schulz findet Worte für das Unbeschreibliche und gibt Antworten auf die tiefsten Fragen des Lebens.\n\nQuelle: <a href=\"https://www.piper.de/buecher/so-sterben-wir-isbn-978-3-492-31621-7\" target=\"_blank\">Verlagsseite</a>",
       "verlag": "Piper",
-      "veroeffentlicht": "2019 (OV 2002)",
+      "veroeffentlicht": "2020",
       "isbn": "978-3-492-31621-7",
-      "link": "https://www.aufbau-verlage.de/aufbau-taschenbuch/deine-kalten-hande/978-3-7466-3731-0",
+      "link": "https://www.piper.de/buecher/so-sterben-wir-isbn-978-3-492-31621-7",
       "quotes": [
         "Es ist ein paradoxes Phänomen: Auch in der Moderne ist der Tod allgegenwärtig, jeden Morgen in der Zeitung, jeden Abend im Fernsehen, rund um die Uhr im Internet - aber im Alltag ist er kaum sichtbar. Der Fortschritt der Medizin, der Wandel der Gesellschaft, die Kultur der Moderne haben den handfesten Tod aus der Wahrnehmung verdrängt. Manche Menschen sehen den ersten Leichnam ihres Lebens erst im Alter von fünfzig oder sechzig Jahren, wenn ihre Eltern sterben. Aus der Sicht der Geschichte ist das eine Anomalie: Sterben und Tod waren über Jahrtausende ein sichtbarer, fassbarer, spürbarer Teil des Lebens, in allen Altersstufen. Aber inzwischen ist Sterben abstrakt.\n\nSchulz 2020, S. 17",
-        "Manche stützen sich auf ihren Ursprung aus Sternenstaub. Die Bausteine deines Körpers - Wasserstoff, Kohlenstoff, Sauerstoff - bildeten sich im Urknall, in Sternenexplosionen. Astrophysiker schätzen: Die Hälfte aller Atome auf Erden - in Berg und Baum, in Meer und Menschen - stammt von Sternen jenseits der Milchstraße. Sie sind Milliarden von Jahre alt. Die paar Jahre in dir sind da nur ein Blinzeln, bevor der Weg durch die Ewigkeit weitergeht.\n\nSchulz, S. 29",
+        "Manche stützen sich auf ihren Ursprung aus Sternenstaub. Die Bausteine deines Körpers - Wasserstoff, Kohlenstoff, Sauerstoff - bildeten sich im Urknall, in Sternenexplosionen. Astrophysiker schätzen: Die Hälfte aller Atome auf Erden - in Berg und Baum, in Meer und Menschen - stammt von Sternen jenseits der Milchstraße. Sie sind Milliarden von Jahren alt. Die paar Jahre in dir sind da nur ein Blinzeln, bevor der Weg durch die Ewigkeit weitergeht.\n\nSchulz 2020, S. 29",
         "Deinen Körper tragen mehr als 200 Knochen, mehr als 600 Muskeln vollführen deine Bewegungen. Dein Herz schlägt in Hast über hundert Mal pro Minute, das Blut mit solchem Druck durch seine Bahnen pumpend, dass der Puls durch deinen kompletten Körper klingt. Deine Lungen atmen Tag für Tag mehr als 10.000 Liter Luft ein, aus denen die Abermillionen deiner Lungenbläschen bis zu 800 Liter Sauerstoff aufnehmen. Dein Gehirn, keine drei Pfund Gewebe, die deine Gedanken, Handlungen, Erinnerungen, Träume hervorrufen, schickt Impulse schneller als Stürme durch deine Nervenstränge. Du bestehst aus Milliarden kritischer Bauteile, manche reparieren sich in vollem Lauf selbst, manche gibt es doppelt, Lungenflügel, Niere, Eileiter oder Hoden - du bist keine simple Maschine, sondern ein auf Ausfallsicherheit ausgelegtes System, komplexer als jedes Kraftwerk. Physiker sagen: ein offenes System hoher Ordnung. Solche Systeme  versagen selten auf einen Schlag. Sie versagen schrittweise.\n\nSchulz 2020, S. 31f.",
         "Studien des Sterbens stammen nicht von Sterbenden. In der Sprache der Wissenschaft sagt man: Erkenntnisse über Sterben sind selten emisch, also auf Beschreibungen der unmittelbar Betroffenen fußend, sondern nahezu immer etisch, also durch Beobachtung von außen gewonnen.\n\nSchulz 2020, S. 56f."
              ] 
+    },
+    {
+      "title": "Robert Enke",
+      "untertitel": "Ein allzu kurzes Leben",
+      "author": "Ronald Reng",
+      "cover": "covers/2026_reng.webp",
+      "cover_position": "center top",
+      "cover_zoom": 1.0,
+      "autorfoto": "covers/autoren/rreng.webp",
+      "autorfoto_position": "center bottom",
+      "autorfoto_quelle": "© Gunnar Knechtel",
+      "jahr": 2026,
+      "rating": 4.5,
+      "kurzbeschreibung": "Der Autor ist zurückhaltend genug, den kausalen Zusammenhang explizit offen zu lassen. Und ihn implizit beim Leser wirken zu lassen. Auch eine Antwort auf die Frage, ob er hätte offen zu seiner Krankheit stehen können und trotzdem hätte weiterspielen können, gibt Ronald Reng nicht. Das muss er auch nicht. Nicht als Freund oder zumindest Wegbegleiter, der er für Robert Enke war. Nicht als Autor, der gewissenhaft beschreibt, was war, ohne alles erklären zu müssen. Und zu können. Es lohnt sich, dieses Buch zu lesen.\n\nQuelle: n-tv.de",
+      "infotext": "Robert Enke war eine außergewöhnliche Persönlichkeit im deutschen Tor. Mit 20 berufen, für den  legendären FC Barcelona zu spielen, war er mit 25 ein vergessenes Talent. Als es schon fast zu spät schien, etablierte er sich doch noch als Weltklassetorwart. Ronald Reng – Journalist, Torwart und ein Freund Enkes – schildert Erfolge und Misserfolge, aber vor allem erzählt er die Geschichte hinter dem öffentlichen Menschen, von seinen Hoffnungen und Schicksalsschlägen. Enkes Selbstmord berührte und erschütterte Deutschland weit über die Welt des Fußballs hinaus.\n\nQuelle: <a href=\"https://www.piper.de/buecher/robert-enke-isbn-978-3-492-27316-9\" target=\"_blank\">Verlagsseite</a>",
+      "verlag": "Piper",
+      "veroeffentlicht": "2011",
+      "isbn": "978-3-492-27316-9",
+      "link": "https://www.piper.de/buecher/robert-enke-isbn-978-3-492-27316-9",
+      "quotes": [
+        "Mit seinem Leben war es wie mit dem Kühlschrank. Er dachte den ganzen Tag daran, wie er es reparieren sollte, und konnte keine Antworten finden, weil er sofort negative Konsequenzen sah: Sollte er ein paar Monate nach Deutschland in eine Klinik gehen? Dann würde er Teresa verlieren, wenn er sie alleine ließ. Sollte er in Barcelona bleiben und weiterhin auf Doktor Geldschläger und die Tabletten hoffen? Dann würde er Teresa verlieren, weil er ihr auf die Nerven ging. Sollte er anstreben, in der Wintertransferperiode wieder bei einem Verein unterzukommen? Dann würde er nur wieder versagen. Sollte er mit dem Fußball aufhören? Was sollte er denn dann machen?\n\nReng 2011, S. 221",
+        "Es  war eine große Anstrengung für ihn, allein zu entscheiden, ob er Pflaumen- oder Käsekuchen wollte. Er fühlte sich chronisch überfordert von den minimalen Anforderungen des Alltags. Aber er lavierte sich durch den Tag, er trainierte, er lächelte auf dem Kindergeburtstag, er spielte seine Rolle. Irgendetwas zu tun, so viel Kraft es auch kostete, war immer noch besser, als der Müdigkeit nachzugeben und sich auszuruhen. Denn dann kamen die Gedanken. Dann sah er in seinem Büro drei nicht geöffnete Briefe und fühlte, das Büro versinke im Chaos, er dachte, ich schaffe es nicht einmal mehr, den Bürokram in Ordnung zu halten, dachte, ich schaffe doch gar nichts mehr, dachte, es ist sowieso schon alles zu spät, ich habe bereits alles falsch gemacht.\n\nReng 2011, S. 371f."
+        ] 
     }
   ]
 }
