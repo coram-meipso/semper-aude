@@ -2,6 +2,27 @@
   "_hinweis": "Buchdaten für buecher.html. Neues Buch: weiteres Objekt in 'buecher' einfügen. Felder: title, author, cover (Bildpfad oder leer), jahr (Lesejahr, Zahl, bestimmt die Gruppierung), rating (0-5 in 0,5-Schritten), kurzbeschreibung, infotext (eigene, ausführlichere Gedanken), verlag, veroeffentlicht (Datum als Text, z.B. '2015' oder 'März 2015'), isbn, link (URL oder leer), quotes (Liste, kann leer sein: []).",
   "buecher": [
     {
+      "title": "Im Leben nebenan",
+      "author": "Anne Sauer",
+      "cover": "covers/2026_sauer.jpg",
+      "cover_position": "center 15%",
+      "cover_zoom": 1.0,
+      "autorfoto": "covers/autoren/asauer.jpg",
+      "autorfoto_position": "center 10%",
+      "autorfoto_quelle": "© Tara Wolff",
+      "jahr": 2026,
+      "rating": 2.5,
+      "kurzbeschreibung": "Anne Sauer erzählt davon, wie das eigene Leben verlaufen könnte, hätte man die eine entscheidende Abzweigung nicht genommen. ‹Im Leben nebenan› spiegelt zwei Lebensszenarien einer jungen Frau, erzählt im Wechsel von zwei Versionen eines Lebens und nimmt dabei mit gebotenem Humor, Gefühl und Leichtigkeit den Horror von gewollter und ungewollter Mutterschaft in den Blick: das große Glück mit Kind, aber auch: ohne Kind zu leben.\n\nQuelle: <a href=\"https://www.dtv.de/buch/im-leben-nebenan-28483\" target=\"_blank\">Verlagsseite</a>",
+      "infotext": "Eines Morgens erwacht Toni nicht wie gewohnt neben ihrem langjährigen Freund in ihrer kleinen Altbauwohnung, weil die Dielen knarren und die Nachbarn viel zu laut sind. Nein. Zu ihrer Verwunderung befindet sie sich in einer großzügig geschnittenen Wohnung. Alles hell, ordentlich, teuer eingerichtet. Und der Blick aus dem Fenster? Seltsam vertraut. Antonia versteht: Sie ist wieder in dem Dorf ihrer Kindheit. Nach und nach erfährt sie, dass sie hier ein beschauliches Leben führt, bürgerlich geordnet, mit Auto vor der Tür, Schwiegermutter nebenan und Kind auf dem Schoß. Kind auf dem Schoß? Antonia kommt aus dem Staunen nicht mehr heraus. Ist das etwa ihr Baby? Und der Vater dazu? Offenbar ihre erste große Liebe – ein Mann, den sie nie ganz vergessen konnte.\n\nQuelle: <a href=\"https://www.dtv.de/buch/im-leben-nebenan-28483\" target=\"_blank\">Verlagsseite</a>",
+      "verlag": "dtv",
+      "veroeffentlicht": "2025",
+      "isbn": "978-3-423-28483-7",
+      "link": "https://www.dtv.de/buch/im-leben-nebenan-28483",
+      "quotes": [
+        "Hanna brüllt, soll sie halt brüllen. Warum hatte sie sie überhaupt mitgenommen und nicht schon auf dem Weg abgelegt, einfach irgendwo liegen gelassen. Wie aufgeklappt steht Antonia jetzt da, die aufgeknöpfte Trage schleift am Boden, sie stützt sich ab auf den Knien, alles ist zu warm, alles dreht sich. Plötzlich diese heiße Welle im Inneren, Spucke im Mund, sie übergibt sich, atmet stöhnend aus, schluckt und heult, noch eine Welle. Brennen im Rachen. Sie sieht den Spuckefaden, wie er langsam auf ihren Schuh tropft, nimmt wahr, wie sich die Gestalten um sie herum in Formation bringen. Würde jemand von ihnen tatsächlich fragen, ob Antonia Hilfe bräuchte, dann könnte sie es erklären. Dass sie hier wegmüsse, in die Stadt, in ihre Stadt. Dass sie Jakob suchen müsse, ihre Wohnung, sich vergewissern müsse, dass ihr Name noch auf dem Klingelschild steht. Sie würde erklären, ganz ruhig, dass sie sich das hier so nicht ausgesucht hatte. Dass es nicht ihre Schuld sei, dass sie jetzt hier steht wie eine Zusammengefallene, verschwitzt, vollgekotzt und unendlich müde. Sie hört den anrollenden Zug, das Flirren im Gleisbett, hebt leicht den Blick. Der Kinderwagen, nur kurz anstroßen müsste sie ihn. Dann wäre es vorbei. Mit dem Brüllen. Mit ihr, mit alldem hier. Dann würden sie sie wirklich wegbringen, endlich wegbringen, irgendwohin. Hauptsache, nicht mehr zurück in dieses Haus. Dann wäre Ruhe, denkt sie noch, bevor alles dunkel wird.\n\Sauer 2025, S. 79"
+      ]
+    },   
+    {
       "title": "Sterben lernen",
       "untertitel": "Das Buch für den Abschied",
       "author": "Felix Hütten",
