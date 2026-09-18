@@ -1,0 +1,25 @@
+{
+  "_hinweis": "Fotodaten für fotos.html. Neues Foto: weiteres Objekt in 'fotos' einfügen. Felder: url (externer Bildlink, Pflicht), alt (Kurzbeschreibung fürs Bild, für Barrierefreiheit), bildunterschrift (optional, erscheint unter dem großen Bild beim Anklicken).",
+  "fotos": [
+    {
+      "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+      "alt": "Bergpanorama bei Sonnenaufgang",
+      "bildunterschrift": "Bergpanorama, Oktober 2025"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800",
+      "alt": "Wald im Nebel",
+      "bildunterschrift": "Waldweg im Nebel"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800",
+      "alt": "Wüstenlandschaft",
+      "bildunterschrift": ""
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800",
+      "alt": "Küstenlinie von oben",
+      "bildunterschrift": ""
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotos &ndash; semper aude</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0D1117;
+    --bg-alt: #161B22;
+    --card-bg: #161B22;
+    --ink: #E6EDF3;
+    --muted: #8B949E;
+    --line: #30363D;
+    --accent: #F0813A;
+    --accent-tint: #3A2415;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  header { border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; }
+  .wordmark {
+    font-family: 'Germania One', cursive;
+    font-weight: 400;
+    font-size: 1.3rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'%3E%3Cpolygon points='0,0 100,0 100,100' fill='%236b1029'/%3E%3Cpolygon points='0,0 100,100 0,100' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,100 100,200' fill='%237f1530'/%3E%3Cpolygon points='0,100 100,200 0,200' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,0 200,100' fill='%2395183a'/%3E%3Cpolygon points='100,0 200,100 100,100' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,100 200,200' fill='%23ab1e35'/%3E%3Cpolygon points='100,100 200,200 100,200' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,0 300,100' fill='%23c22530'/%3E%3Cpolygon points='200,0 300,100 200,100' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,100 300,200' fill='%23d92e2c'/%3E%3Cpolygon points='200,100 300,200 200,200' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,0 400,100' fill='%23e83f29'/%3E%3Cpolygon points='300,0 400,100 300,100' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,100 400,200' fill='%23f0532a'/%3E%3Cpolygon points='300,100 400,200 300,200' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,0 500,100' fill='%23f26a26'/%3E%3Cpolygon points='400,0 500,100 400,100' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,100 500,200' fill='%23f47f24'/%3E%3Cpolygon points='400,100 500,200 400,200' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,0 600,100' fill='%23f79424'/%3E%3Cpolygon points='500,0 600,100 500,100' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,100 600,200' fill='%23f9a821'/%3E%3Cpolygon points='500,100 600,200 500,200' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,0 700,100' fill='%23fbbb1f'/%3E%3Cpolygon points='600,0 700,100 600,100' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,100 700,200' fill='%23fdc92a'/%3E%3Cpolygon points='600,100 700,200 600,200' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,0 800,100' fill='%23ffd23f'/%3E%3Cpolygon points='700,0 800,100 700,100' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,100 800,200' fill='%23ffdb5c'/%3E%3Cpolygon points='700,100 800,200 700,200' fill='%23ffdb5c'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  .back-link { font-size: 0.85rem; color: var(--muted); }
+  .back-link:hover { color: var(--accent); }
+
+  main { padding: clamp(2.5rem, 6vw, 4rem) 0; flex: 1; }
+
+  h1 { font-size: 1.6rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 2.5rem; }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  @media (min-width: 640px) { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 900px) { .photo-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .photo-tile {
+    display: block;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background: none;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .photo-tile img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(100%);
+    transition: filter 0.25s ease, transform 0.25s ease;
+  }
+  .photo-tile:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+  }
+
+  /* Lightbox */
+  .photo-lightbox {
+    position: fixed; inset: 0;
+    background: rgba(3, 5, 8, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    z-index: 200;
+    cursor: zoom-out;
+  }
+  .photo-lightbox.open { display: flex; }
+  .photo-lightbox img { max-width: 90vw; max-height: 82vh; object-fit: contain; border-radius: 6px; }
+  .photo-lightbox-caption { color: var(--muted); font-size: 0.85rem; margin-top: 1rem; text-align: center; }
+  .photo-lightbox-close {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--card-bg); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--ink);
+  }
+  .photo-lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
+
+  footer { padding: 1.5rem 0; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="wordmark" href="/">semper aude</a>
+    <a class="back-link" href="/">&larr; Zurück zur Startseite</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Fotos</h1>
+  <div class="subtitle">Auf ein Foto klicken für die große Ansicht.</div>
+
+  <div class="photo-grid" id="photo-grid"></div>
+</main>
+
+<footer>
+  &copy; 2026 semper-au.de
+</footer>
+
+<div class="photo-lightbox" id="photo-lightbox">
+  <button class="photo-lightbox-close" id="photo-lightbox-close" type="button" aria-label="Schließen">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="photo-lightbox-img" src="" alt="">
+  <div class="photo-lightbox-caption" id="photo-lightbox-caption"></div>
+</div>
+
+<script>
+async function ladeFotos() {
+  try {
+    const res = await fetch('fotos.json');
+    const data = await res.json();
+    zeigeFotos(data.fotos || []);
+  } catch (e) {
+    document.getElementById('photo-grid').innerHTML =
+      '<p style="color: var(--muted); grid-column: 1 / -1;">Fotos konnten nicht geladen werden. Liegt fotos.json im selben Ordner?</p>';
+  }
+}
+
+function zeigeFotos(fotos) {
+  const grid = document.getElementById('photo-grid');
+  grid.innerHTML = '';
+  fotos.forEach(function(foto) {
+    const tile = document.createElement('button');
+    tile.className = 'photo-tile';
+    tile.setAttribute('type', 'button');
+
+    const img = document.createElement('img');
+    img.src = foto.url;
+    img.alt = foto.alt || '';
+    img.loading = 'lazy';
+
+    tile.appendChild(img);
+    tile.addEventListener('click', function() {
+      oeffneLightbox(foto.url, foto.alt || '', foto.bildunterschrift || '');
+    });
+    grid.appendChild(tile);
+  });
+}
+
+const lightbox = document.getElementById('photo-lightbox');
+const lightboxImg = document.getElementById('photo-lightbox-img');
+const lightboxCaption = document.getElementById('photo-lightbox-caption');
+
+function oeffneLightbox(url, alt, caption) {
+  lightboxImg.src = url;
+  lightboxImg.alt = alt;
+  lightboxCaption.textContent = caption;
+  lightbox.classList.add('open');
+}
+
+function schliesseLightbox() {
+  lightbox.classList.remove('open');
+}
+
+document.getElementById('photo-lightbox-close').addEventListener('click', function(e) {
+  e.stopPropagation();
+  schliesseLightbox();
+});
+lightbox.addEventListener('click', schliesseLightbox);
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') schliesseLightbox();
+});
+
+ladeFotos();
+</script>
+
+</body>
+</html>
