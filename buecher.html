@@ -67,6 +67,34 @@
   }
   .year-heading:first-of-type { margin-top: 0; }
 
+  .random-quote-box {
+    position: relative;
+    padding: 1.5rem 1.75rem 1.25rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card-bg);
+  }
+  .random-quote-shuffle {
+    position: absolute; top: 12px; right: 12px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--bg); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--muted); padding: 0;
+  }
+  .random-quote-shuffle:hover { color: var(--accent); border-color: var(--accent); }
+  .random-quote-shuffle svg { width: 14px; height: 14px; }
+  .random-quote-text {
+    font-style: italic; font-size: 0.98rem; line-height: 1.6; white-space: pre-line;
+    padding-right: 2rem;
+  }
+  .random-quote-link {
+    display: inline-block; margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted);
+    cursor: pointer; border-bottom: 1px dashed var(--line);
+  }
+  .random-quote-link:hover { color: var(--accent); border-color: var(--accent); }
+  .random-quote-link .citation-author { font-variant: small-caps; letter-spacing: 0.03em; }
+
   /* Buch-Grid */
   .book-grid {
     display: grid;
@@ -235,6 +263,14 @@
   <h1>Bücher</h1>
   <div class="subtitle">Gelesenes und Empfehlungen &ndash; auf ein Cover klicken für mehr.</div>
 
+  <div class="random-quote-box" id="random-quote-box" style="display:none;">
+    <button class="random-quote-shuffle" id="random-quote-shuffle" type="button" aria-label="Anderes Zitat anzeigen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+    </button>
+    <div class="random-quote-text" id="random-quote-text"></div>
+    <span class="random-quote-link" id="random-quote-link"></span>
+  </div>
+
   <div id="book-grid"></div>
 </main>
 
@@ -301,6 +337,7 @@ async function ladeBuecher() {
     const data = await res.json();
     buecher = data.buecher || [];
     zeigeBuecher();
+    zeigeZufallsZitat();
   } catch (e) {
     document.getElementById('book-grid').innerHTML =
       '<p style="color: var(--muted); grid-column: 1 / -1;">Bücher konnten nicht geladen werden. Liegt buecher.json im selben Ordner?</p>';
@@ -380,6 +417,63 @@ function zeigeBuecher() {
     grid.appendChild(jahrGrid);
   });
 }
+
+let letzterZufallsIndex = -1;
+
+function sammleAlleZitate() {
+  const alle = [];
+  buecher.forEach(function(buch) {
+    (buch.quotes || []).forEach(function(zitat) {
+      const teile = zitat.split('\n\n');
+      alle.push({
+        buch: buch,
+        text: teile[0],
+        quelle: teile.slice(1).join('\n\n')
+      });
+    });
+  });
+  return alle;
+}
+
+function zeigeZufallsZitat() {
+  const alle = sammleAlleZitate();
+  const box = document.getElementById('random-quote-box');
+  if (alle.length === 0) {
+    box.style.display = 'none';
+    return;
+  }
+
+  let index;
+  do {
+    index = Math.floor(Math.random() * alle.length);
+  } while (alle.length > 1 && index === letzterZufallsIndex);
+  letzterZufallsIndex = index;
+
+  const eintrag = alle[index];
+  document.getElementById('random-quote-text').textContent = '\u201e' + eintrag.text + '\u201c';
+
+  const linkEl = document.getElementById('random-quote-link');
+  linkEl.innerHTML = '';
+  if (eintrag.quelle) {
+    const leerzeichenIndex = eintrag.quelle.indexOf(' ');
+    if (leerzeichenIndex > -1) {
+      const autor = document.createElement('span');
+      autor.className = 'citation-author';
+      autor.textContent = eintrag.quelle.slice(0, leerzeichenIndex);
+      linkEl.appendChild(autor);
+      linkEl.appendChild(document.createTextNode(eintrag.quelle.slice(leerzeichenIndex)));
+    } else {
+      linkEl.textContent = eintrag.quelle;
+    }
+  } else {
+    linkEl.textContent = eintrag.buch.title;
+  }
+  linkEl.onclick = function() { oeffneModal(eintrag.buch); };
+
+  box.style.display = 'block';
+}
+
+document.getElementById('random-quote-shuffle').addEventListener('click', zeigeZufallsZitat);
 
 ladeBuecher();
 
