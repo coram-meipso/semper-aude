@@ -1,0 +1,19 @@
+{
+  "_hinweis": "Projektdaten für projekte.html. Neues Projekt: weiteres Objekt in 'projekte' einfügen. Felder: title (Pflicht), bild (Bildpfad oder externer Link, Pflicht), infotext (Pflicht), link (URL, optional), linktext (Beschriftung des Links, Standard 'Mehr erfahren' falls leer).",
+  "projekte": [
+    {
+      "title": "HomeBase",
+      "bild": "https://images.unsplash.com/photo-1558002038-1055907df827?w=1200",
+      "infotext": "Ein selbst gehostetes Dashboard für meine Server-Infrastruktur zuhause – Statusübersicht, Systemauslastung und Schnellzugriffe auf alle Dienste an einem Ort.",
+      "link": "/homebase/",
+      "linktext": "Zur HomeBase"
+    },
+    {
+      "title": "Smart-Home-Automatisierung",
+      "bild": "https://images.unsplash.com/photo-1558002038-bb0237f4e5f3?w=1200",
+      "infotext": "Lichtsteuerung, Heizungssteuerung und Anwesenheitserkennung, komplett lokal ohne Cloud-Zwang, gesteuert über Home Assistant.",
+      "link": "",
+      "linktext": ""
+    }
+  ]
+}
