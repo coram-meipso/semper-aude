@@ -106,7 +106,7 @@
 
 <main class="wrap">
   <h1>Projekte</h1>
-  <div class="subtitle">Informationen zu abgeschlossenen, laufenden oder geplanten Projekten.</div>
+  <div class="subtitle">Alles rund um Smart Home, Selfhosting und was sonst noch entsteht.</div>
 
   <div class="project-grid" id="project-grid"></div>
 </main>
@@ -140,6 +140,7 @@ function zeigeProjekte(projekte) {
     img.src = projekt.bild || '';
     img.alt = projekt.title || '';
     img.loading = 'lazy';
+    img.style.objectPosition = projekt.bildposition || 'center';
     imgWrap.appendChild(img);
 
     const body = document.createElement('div');
