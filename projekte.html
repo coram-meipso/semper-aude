@@ -140,7 +140,7 @@ function zeigeProjekte(projekte) {
     img.src = projekt.bild || '';
     img.alt = projekt.title || '';
     img.loading = 'lazy';
-    img.style.objectPosition = projekt.bildposition || 'center';
+    img.style.objectPosition = projekt.bildposition || 'top';
     imgWrap.appendChild(img);
 
     const body = document.createElement('div');
