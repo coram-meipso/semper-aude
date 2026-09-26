@@ -2,6 +2,29 @@
   "_hinweis": "Buchdaten für buecher.html. Neues Buch: weiteres Objekt in 'buecher' einfügen. Felder: title, author, cover (Bildpfad oder leer), jahr (Lesejahr, Zahl, bestimmt die Gruppierung), rating (0-5 in 0,5-Schritten), kurzbeschreibung, infotext (eigene, ausführlichere Gedanken), verlag, veroeffentlicht (Datum als Text, z.B. '2015' oder 'März 2015'), isbn, link (URL oder leer), quotes (Liste, kann leer sein: []).",
   "buecher": [
     {
+      "title": "Memories of Heidelberg",
+      "author": "Heinz Strunk",
+      "cover": "covers/2026_strunk.webp",
+      "cover_position": "center",
+      "cover_zoom": 1.0,
+      "autorfoto": "covers/autoren/hstrunk.webp",
+      "autorfoto_position": "center 10%",
+      "autorfoto_quelle": "© Dennis Dirksen",
+      "jahr": 2026,
+      "rating": 4.5,
+      "kurzbeschreibung": "-",
+      "infotext": "Bertram und Isolde, ein in die Jahre gekommenes Paar aus Oldenburg, möchten sich in Heidelberg mal einen richtig schönen Kurzurlaub gönnen. Vielleicht vertreibt das ja auch den seelischen Smog über dem Eheleben. Das Boutiquehotel ist für das viele Geld gar nicht so toll; dafür haben die beiden gleich einen neuen Stamm-Italiener ausgemacht. Das Restaurant voller Flair befindet sich auf einem alten Flussschiff im Neckar. Während die Ehe der beiden im Verlauf einer Woche zusehends aus der Form gerät, wird auch der abendliche Gang auf das Restaurantschiff immer mehr zur Enttäuschung, zur Strafe, zur Höllenqual. Das Teuflische bricht mit verheerender Macht in den Alltag, am Ende steht eine Katastrophe – und das alles zum Schlager-Oldie Memories of Heidelberg in Dauerschleife.\n\nQuelle: <a href=\"https://www.rowohlt.de/buch/heinz-strunk-memories-of-heidelberg-9783498009748\" target=\"_blank\">Verlagsseite</a>",
+      "verlag": "Rowohlt",
+      "veroeffentlicht": "2026",
+      "isbn": "978-3-498-00974-8",
+      "link": "https://www.rowohlt.de/buch/heinz-strunk-memories-of-heidelberg-9783498009748",
+      "quotes": [
+        "Durch die Latscherei ist sein Unterleib angeschwollen wie der Blähbauch eines Säuglings, der muss sich jetzt erstmal wieder beruhigen. Ein heller Streifen Sonne, der durch einen Riss in der Wolkendecke scheint, elektrisiert das Wasser. Vor ihm treibt eine Präservativqualle. Mehrere Versuche, sie mit einem gezielten Speichelshot zu versenken, scheitern. Spuche und Präser schwimmen traut vereint davon. So viele Menschen haben sich schon auf dem Grund des Flusses schlafen gelegt; ihre Tage sind zu Ende, und er weiß nicht, wie er seine überstehen soll. Wie schön es wäre, sich angstlos treiben zu lassen, ohne etwas zu begehren, ohne ein Ziel zu erstreben. Nichts erwartend und durch nichts mehr zu enttäuschen.\n\nStrunk 2026, S. 52",
+        "Godehard ist schon wieder dünner geworden, der sprichwörtliche Strich in der Landschaft, eine Ausgeburt des Aktenstaubes, zusammengebaut aus Papier, Graphit, Bleitstiftspänen und Druckerschwärze. Ich beschreite den Weg des Fetts, der Schwager hat sich für den Weg der Dürre entschieden. Godi wird in die Geschichte eingehen, als der letzte Mensch, der ein Fax geschickt hat. "Hallo, Godi." "Ach, Isolde. Bertram. Hallo" Grüßt er mit hoher Sittichstimme und hebt sich dabei ein paar Zentimeter aus seinem Sessel, sackt dann aber gleich wieder zusammen wie eine Marionette, deren Schnüre man durchtrennt hat. Sein Gesicht wirkt seltsam in die Länge gezogen, ausgelaugt, faserig. Er hat immer schon etwas Angegilbtes gehabt, dieser Gelbstich ist stärker geworden und erinnert nun an Dörraprikosen.\n\nStrunk 2026, S. 128f.",
+        "Kaum sagt sie ein liebes Wort, geht sein Herz auf wie Hefeteig. Dank sei Gott für jede kleine Gnade. Endlich langmachen, zudecken, mit den dicken Zehen wackeln. Staub und irgendwelche PArtikel glitzern im schmierigen Licht, ein leiser Ton wie das Summen einer sterbenden Fliege hängt in der Luft. Er sehnt sich nach endlosem, traumlosem Schlaf, sehnt sich danach, für den Rest seines Lebens auszuschlafen. Alt werden. Schwach werden. Dumm und vergesslich. Nichts niemandem mehr nachtragen, nie mehr neidisch sein. Keine Wünsche, keine Ziele, kein Begehren. Nicht der Jugend nachtrauern, nicht der Gesundheit und Spannkraft und Beweglichkeit. Die Jungen vielmehr bedauern, weil sie alles noch vor sich haben. Lasten abwerfen. Endlich fröhlich werden. Singen. Sich auf den Tod freuen. Erlöst werden.\n\n Strunk 2026, S. 147"
+      ]
+    },  
+    {
       "title": "Im Leben nebenan",
       "author": "Anne Sauer",
       "cover": "covers/2026_sauer.jpg",
